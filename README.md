@@ -1,3 +1,20 @@
+<html>
+<head>
+  <title>Evernote Export</title>
+  <basefont face="微软雅黑" size="2" />
+  <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+  <meta name="exporter-version" content="YXBJ Windows/600475 (zh-CN, DDL); Windows/10.0.0 (Win64);"/>
+  <meta name="content-class" content="yinxiang.markdown"/>
+  <style>
+    body, td {
+      font-family: 微软雅黑;
+      font-size: 10pt;
+    }
+  </style>
+</head>
+<body>
+<a name="7721"/>
+
 <div><span><div style="font-size: 14px; margin: 0; padding: 0; width: 100%;"><h1 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 41px; border-bottom: 3px double #999; color: #000; margin-top: 14px;">scRNA-seq Review</h1>
 <p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Auther: Xingzhao (Irene) Wen</em><br/>
 <em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Date: Jan 10th 2019</em></p>
@@ -35,331 +52,246 @@
 </a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">B) Accuracy of scRNA-Seq Methods:
 </a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">C) Precision of Amplified Genes Is Strongly Increased by UMIs:
 </a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">D) Cost efficiency:
-</a></li></ul></li></ul></li></ul></li></ul></li></ul></div>
-
-## Introduction
-It's good to be in a time that single cell transcriptom is easy to aquire with formulated protocols as well as good  to know these methods share certain brilliant commons that we can now easily follow up. 
-
-It's been around a decade since [Tang et al., 2009](https://www.ncbi.nlm.nih.gov/pubmed/19349980) first proposed completely unbiased transcriptome-wide investigation of the mRNA in a single cell by taking advantage of high throughput DNA sequencing techonogy. Through years, technologies have been improved through **sensitivity, accuracy, cost efficiency and scalability.** 
-
-&nbsp;
-
-![2b9df47feda200bf61d723e78af74a14.png](en-resource://database/7729:1)@w=600
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *Figure 1 **Scaling of scRNA-seq experiments**. ([Svensson et al., 2018](https://www.nature.com/articles/nprot.2017.149))*
-
-
-&nbsp;
-
-All single cell RNA-seq protocols share a common initial step, where **transcribed RNA from cells can be converted to cDNA**. The next step is an **amplification**, using molecular biological methods such as polymerase chain reaction (PCR) or in vitro transcription (IVT). The subsequent steps, culminating in **sequencing** allow the expression level of gene products to be quantified. 
-
-Most of these techniques can be categorized either based on  **amplification** method, namely:
-
-*  PCR after polyA tailing
-*  IVT (in vitro transcription) 
-*  Template-switching
-
-For most of the techniques direct or indirect derivation of these amplification method. I will walk though each method by its origin and applications for your better understanding. 
-
-## scRNA-seq Techniques
-
-### 1) PCR after polyA tailing 
-Technologies in this category exploit the mRNA polyA tail and devise primer properly for later PCR amplification (exponential increase with potein more bias compared to other linear amplification method). 
-
-#### Technique origin （Kurimoto 2006 )
-In 2006, [Kurimoto et al.,](https://academic.oup.com/nar/article/34/5/e42/1146394) first proposed a method *"An improved single-cell cDNA amplification method for efficient high-density oligonucleotide microarray analysis"* . 
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![b50f8dee260be5a6d9e8ba696bc3a1e4.png](en-resource://database/7733:1)@w=500
-
-
-*Figure 2 **Schematic diagram of cDNA amplification**. The mRNA and cDNA are colored pink and orange, respectively. The V1, V3 and T7 promoter sequences are represented by blue, red and green boxes, respectively. The bars above the letters represent the complementary sequences.*
-
-This protocol shows a paradiam for polyA tailing PCR amplification with few key steps to be noticed:
-
-- Use V1 primer plus polyT to generate the first cDNA of template mRNA, and use Exonuclease I to digest unreacted primer. 
-
-- **Add A at the end of first cDNA** and use **RNaseH** to digest RNA. (now, cDNA becomes template).
-
-- Reverse transcribe the new template with a new V3+polyT primer to get double stranded cDNA. PCR for 20 cycles.
-
-- Add T7 promoter PCR another 9 cycles. (**T7 promoter is used for transcribe cDNA template to RNA. RNAs are required for Affymetrix chip downstream analysis**). 
-
-
-#### Technique applications and derivations:
-
-##### a) sc mRNA-seq whole-stranscriptome (Tang 2009)
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![1bdbcb11bbe1f5e76fd52d5e677aff4e.png](en-resource://database/7735:1)@w=500
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Figure 3 **Schematic of the single-cell whole-transcriptome analysis.**[Tang et al., 2009](https://www.nature.com/articles/nmeth.1315)* 
-
-This breakthrough work follows nearly the same idea as Kurimoto except for replacing array with sequencing (SOLiD system). Due to this reason, we could see that Tang didn't use T7 promoter any more. 
-
-##### b) Quartz-seq 1&2 ([Sasagawa 2013](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31)) 
-This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/open?id=1vq_mkT-UL1TcBkiynrfNDpDhMXEr2G_w). Quartz-seq include steps:
-
-- Reverse transcription with an RT primer to generate the first-strand cDNAs from the target RNAs.
-
-- The second step is a primer digestion with exonuclease I; this is one of the key steps to prevent the synthesis of byproducts.
-
-- The third step is the addition of a poly-A tail to the 3’ ends of the first-strand cDNAs
-
-- The fourth step is the second-strand synthesis using a tagging primer, which prepares the substrate for subsequent amplifi- cation. 
-
-- The fifth step is a PCR enrichment reaction with a suppression PCR primer to ensure that a sufficient quantity ofDNA is obtained for the massively parallel sequencers or microarrays. All five steps are completed in **a single PCR tube** without any purification. 
-
-![1e262fea44db5d0ce69efe914c7938da.png](en-resource://database/7739:1)@w=500
-*Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction* 
-
- **Main improvements** of Quartz-seq (compared to Kurimoto's method):
-1) Achieved robust suppression of byproduct synthesis;
-    
-    -  **Exonuclease I**
-    - **Suppression PCR** (byproduct cDNA is short which indicates a faster fasion for self hybridization. This short double strand cDNA is not subject to PCR amplification.) 
-    ![5c88bfe4d72710cd5e1e8e1263e2f082.png](en-resource://database/7741:1)@w=500
-    
-    
-2) Identified a robust PCR enzyme that allows the use of a single-tube reaction; 
-
-    - MightyAmp DNA Polymerase
-
-3) Determined the optimal conditions of reverse transcription (RT) and second-strand synthesis for the capturing mRNA and the first-strand cDNA.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![51cc5aeef9a48561f3fa1e5e0bc4862c.png](en-resource://database/7743:1)@w=400
-
-Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry into 384-well plate and cell barcode. 
-
-![d23bec373ec27ce1ef5f705c941a87a2.png](en-resource://database/7747:1)
-
-##### c) Other derivations:
-![a67ae467471ac4e2e89a3d3352d5f15d.png](en-resource://database/7745:1)
-
-
-### 2) In vitro transcription (IVT) amplification
-#### Technique origin （Ebrewine 1992 )
-IVT was first proposed by [Ebrewine et al., 1992](https://www.pnas.org/content/pnas/89/7/3010.full.pdf) and is a simple procedure that allows for template-directed synthesis of RNA molecules of any sequence from short oligonucleotides to those of several kilobases in μg to mg quantities. It is based on the engineering of a template that includes a bacteriophage promoter sequence (e.g. from the T7 coliphage) upstream of the sequence of interest followed by transcription using the corresponding RNA polymerase.
-
-![6dbc6b35e754b9bf9fb5facbb73d69b8.png](en-resource://database/7749:1)@w=500 
-*Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell* 
-
-Compared to PCR (which grows exponentially), IVT takes adavantage of using cDNA as template and use T7 promoter to transcribe. IVT will not be biased towards GC content since cDNA is of high fidelity. The shortage of this method is the efficiency of amplification( 200 copies/round ). However, later methods will combine IVT and PCR to achieve higher quantity and less errors. 
-
-
-#### Technique applications and derivations:
-![d9282ae58a3c60c9c1f9071cac413d7a.png](en-resource://database/7751:1)@w=700
-
-##### a) CEL-Seq 1&2 (Hashimshony [2012](http://dx.doi.org/10.1016/j.celrep.2012.08.003) & [2016](http://dx.doi.org/10.1186/s13059-016-0938-8))
-The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol leveraged this for linear mRNA amplification from single cells. Here the RT adaptor also contains a T7 promoter, allowing the final double stranded DNA (dsDNA) to be transcribed into multiple copies of antisense RNA (aRNA). 
-
-![22a8c0ca0b3de40deb48928e644214b3.png](en-resource://database/7753:1)@w=700 
-*Figure 6 The CEL-Seq Method*
-
-**Protocols**: 
-1)  The CEL-Seq method begins with a single-cell reverse-tran scription reaction using a primer designed with an anchored polyT, a unique barcode, the 50 Illumina sequencing adaptor, and a T7 promoter.
-2)  Second-strand synthesis is performed and then the cDNA samples are pooled(to obtain sufficient RNA from single cells for a single round of linear amplificatio) and consequently comprise sufficient template material for an IVT reaction. The amplified RNA is then subjected to directional RNA library preparation.
-3)  The RNA is fragmented to a size distribution appropriate for sequencing, the Illumina 3' adaptor is added by ligation, RNA is reverse transcribed to DNA, and the 3'-most fragments that contain both Illumina adaptors and a barcode are selected. 
-4)  The resulting library undergoes paired-end sequencing, where the first read recovers the barcode, whereas the second identifies the mRNA transcript. 
-
-**Advantages**:
-1)  Significantly reduced hands-on time both for the amplification and downstream pro- cessing (2- 3 days).
-2)  The barcode is 8 bp in length and can be longer, the number of samples that may have unique barcodes in a given IVT is essentially unlimited. 
-3)  Strand specificity (>98% of exonic reads come from the sense strand).
-
-**Limitations**:
-1)  The CEL-Seq protocol selects for the single 3'-most fragment of each transcript. In contrast to virtually all other RNA-Seq methods.
-2)  Due to its strong 30 bias, the method is severely limited in its ability to distinguish alternative splice forms.
-
-**CEL-Seq 2 is optimized for higher sensitivity**:
-Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
-![132b35ab6c6cb2396d35b8df5e75e525.png](en-resource://database/7755:1)
-*Figure 7 Changes introduced to the protocol.* 
-
-1)  Shortening the CEL-Seq primer from 92 to 82 nucleotides by reducing the length of the barcode from eight to six nucleotides, as well as shortening the T7 promoter and the Illumina 5'  adaptor.
-2)  Optimized the conversion of RNA to dsDNA by testing alternative commercially available reverse transcriptases for cDNA synthesis and polymerases for second-strand synthesis namely **SuperScript II**.
-3)  Modified our method of dsDNA and aRNA clean-up from column to beads.
-4)  Ligation-free library preparation:  inserting the Illumina adaptor directly at the RT step as a5′-tail attached to a random hexamer, thus eliminating the ligation step and improves read mapping.
-5)  Use UMI, high throughput. 
-  
-
-##### b) MARS-Seq (Jaitin [2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/))
-
-![c777e5a11a657b5d0c69cf07e8d573d4.png](en-resource://database/7757:1)@w=500
-
-In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
-
-##### c) inDrop-Seq (Klein [2015](http://dx.doi.org/10.1016/j.cell.2015.04.
-The inDrop platform encapsulates cells into droplets with lysis buffer, reverse transcription(RT) reagents, and barcoded oligonucleotide primers. mRNA released from each lysed cell remains trapped in the same droplet and is barcoded during synthesis of cDNA. After barcoding, material from all cells is combined by breaking the droplets, and the cDNA library is sequenced using established methods **CEL-seq**.
-
-The major challenge is to ensure that each droplet carries primers encoding a different barcode. People use droplet to capsule barcode with single cell using Droplet device.  
-
-![f829e341be60ad663c4f85c63f85d8bd.png](en-resource://database/7763:1)
-![aeed70dc92744b477f071019277f4081.png](en-resource://database/7765:1)
-*Figure 8 Pipeline and Barcoding Hydrogel Microsphere Synthesis.* 
-
-
-
-### 3) Template-switching PCR 
-
-#### Technique origin 
-
-From [wiki](https://en.wikipedia.org/wiki/Template_switching_polymerase_chain_reaction), the defination of TS-PCR is that:
-> Template-switching polymerase chain reaction (TS-PCR) is a method of reverse transcription and polymerase chain reaction (PCR) amplification that relies on a natural PCR primer sequence at the polyadenylation site a.k.a. poly(A) tail, and adds a second primer through the activity of murine leukemia virus reverse transcriptase.[1] This permits reading full cDNA sequence and can deliver high yield from single sources, even single cells that contain 10 to 30 picograms of mRNA, with relatively low levels (3-5%) of contaminating rRNA sequence. 
-
-A basic question is **the template is switching form what to what?**
-
-To understand this question we could have a look at the figure from the first application of template switching application in single cell RNA sequencing **STRT-seq** ([Islam 2011](http://www.ncbi.nlm.nih.gov/pubmed/20859030)):
-
-![325e6081bccd87516f717160658ad370.png](en-resource://database/7767:1)@w=500
-*Figure 9 Single-cell tagged reverse transcription (STRT).* 
-
-The key steps of template switching are that:
-1)  Use olig-dT as primer to reverse transcribe target RNA to get the first cDNA strand with 3-6 added cytocines.
-2)  Add template-switching oligonucleotide（TSO）primer (ii in green, which has a GGG at the beginning, **right now the template become the first cDNA strand**). The barcode is in green primer.
-3)  The product is am- plified by single-primer PCR exploiting the template-suppression effect and is then immobilized on beads, fragmented, and A-tailed. 
-4)  The Illumina P2 adapter (blue) is ligated to the free end.
-5)  The P1 adapter is introduced in the library PCR step, using a primer tailed with the P1 se- quence (blue)
-6)  The final library is sequenced from the P1 side using a custom primer.
-
-As we could imagine, we could add barcode either at 3' or 5':
-![a58e2b89f7c852a62ae983b0dcd822b7.png](en-resource://database/7769:0)@w=600
-*Figure 9 TSO 3' or 5' scheme. [souce(10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
-
-Or we could not use barcode and build one library for each single cell to get the full length transcript which leads to SMART-Seq. 
-
-To answer the question at the very beginning: **Polimerase does not switch strands, it switches from mRNA as a template to TSO as template.**
-
-#### Technique applications and derivations:
-##### a) Smart-Seq 1&2 ( Picelli [2014](https://www.nature.com/articles/nprot.2014.006) )
-
-![532715c2d4c4416b13972dcd07f33afd.png](en-resource://database/7771:0)
-*Figure 10 Flowchart for Smart-seq2 library preparation scheme.*
-
-**Protocols:**
-1)  Cell lysis: mild (hypotonic) lysis buffer contains free dNTPs and tailed oligo-dT oligonucleotides (30-nt poly-dT stretch and a 25-nt universal 5′ anchor sequence).
-2)  RT reaction: using template-switching oligos(TSOs) and betaine with Mg2+ (overcome RNA secondary structures). Use polymerase Superscript II or KAPA HiFi. Temperature 50 °C for 2 min to promote unfolding of RNA secondary structures and then lower it to 42 °C for 2min to allow completion of RT. Repeat 10-15 cycles.
-3)  template-switching reaction: M-MLV enzyme; Smart-seq2 uses a TSO carrying two riboguanosines in the third- and second-last positions and a modified guanosine to produce a locked nucleic acid (LNA) as the last base at the 3′ end which have 2 features: the enhanced thermal stability of the LNA monomers; and their ability to anneal strongly to the untemplated 3′ extension of the cDNA27.
-4)  Tagmentation to quickly and efficiently construct sequencing libraries from the amplified cDNA. The tagmentation reaction takes advantage of a hyperactive derivative of the Tn5 transposase that catalyzes in vitro integration of predetermined oligonucleotides into target DNA29. The main advantage of this approach is that DNA fragmentation and adapter ligation occur in a single step, and size selection is not necessary. 
-5) PCR. Fragments from previous step is of 200 - 600 bp. 
-
-**Strengths**:
-1)  Full-length cDNAs, It is therefore possible to analyze all the exons of each transcript and to detect the different splice variants, a big advantage over previous methods. It also enables comprehensive SNP and mutation analysis, widening its field of application.
-2)  It allows a high degree of multiplexing; up to 96 samples can be pooled and sequenced on a single lane of an Illumina sequencer.
-
-**Limitations**:
-1)  Only valid for polyA tailed RNA.
-2)  No strand-specific (because we have double-stranded cDNA before building library).
-3)  Require a lot of labour for pooling samples. 
-
-&nbsp;
-
-##### b) Drop-Seq ( Macosko [2015](https://www.cell.com/abstract/S0092-8674(15)00549-8) )
-
-![40486cd33d5cd989c110f5b46413ce9f.png](en-resource://database/7773:0)
-*Figure 11 Extraction and Processing of Single-Cell Transcriptomes by Drop-Seq.*
-
-##### c) SPLiT-Seq ( Rosenberg [2018](http://science.sciencemag.org/content/early/2018/03/14/science.aam8999.full))
-
-Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellular origin of RNA through combinatorial barcoding. It's cheap, require no additional equipment and efficient sample multiplexing. 
-
-![20e1722885e28fd2c0ed60d11243f249.png](en-resource://database/7775:0)
-*Figure 12 Labeling transcriptomes with split-pool barcoding. In each split-pool round, fixed cells or nuclei are randomly distributed into wells, and transcripts are labeled with well-specific barcodes. Barcoded RT primers are used in the first round. Second- and third-round barcodes are appended to cDNA through ligation. A fourth barcode is added to cDNA molecules by PCR during sequencing library preparation. The bottom schematic shows the final barcoded cDNA molecule.*
-
-&nbsp;
-
-![b4d383706f57802fedfcbb0d94f35b9b.png](en-resource://database/7777:0)
-![618e3887c5cee70782f58a708ebdf822.png](en-resource://database/7779:0)
-![dea831fa0c70fe03cda8384923928a41.png](en-resource://database/7781:0)
-
-## Summary
-### 1) Techniques combinations:
-If we go over single cell sequencing workflow and details of each method:
-![303ae0aff0ed6a555053c8e622fba7a0.png](en-resource://database/7791:0)
-We would find there are three main parts that varies in different methods:
-
-* **Cell isolation**
-* **Primer types**
-* **Reverse transcribe from mRNA to cDNA**
-
-Every method is a combination of building blocks, will ou propose noval combinations?:
-![3f51dd0c54eebfef3033fd1ef17d2044.png](en-resource://database/7797:0)
-
-
-
-### 2) Comparative analysis of different methods:
-
-Here we summarize the findings of benchmarking work from [Ziegenhain et al., 2017](10.1016/j.molcel.2017.01.023). 
-#### Background
-**Materials**: 583 mouse embryonic stem cells. All libraries were sequenced to a reasonable level of saturation at one million reads.
-&nbsp;
-**Technical Variable**:
-1)  **Sensitivity**:  the probability to capture and convert a particular mRNA transcript present in a single cell into a cDNA molecule present in the library.
-2)  **Accuracy**:  how well the read quantification corresponds to the actual concentration of mRNAs.
-3)  **Precision**: the precision with which this amplification occurs (i.e., the technical variation of the quantification).
-4)  **Cost**
-
-![8f99051d120746d1570dea5105bc437d.png](en-resource://database/7783:0)
-*Figure 13 Library preparation and features of six methods..*
-
-#### Results
-##### A) Number of genes detected (Sensitivity):
-
-![00408c2c7bac899848a8edd30688a3fc.png](en-resource://database/7785:0)
-*Figure 14 Sensitivity of scRNA-Seq Methods.*
-
-* Smart-seq2 detected the highest number of genes per cell with a median of 9,138.
-* Smart-seq2 is the most sensitive method, as it detects the highest number of genes per cell and the most genes in total across cells and has the most even coverage across transcripts.
-
-##### B) Accuracy of scRNA-Seq Methods:
-compared the observed expression values (counts per million or UMIs per million) with the known concentrations of the 92 **ERCC** transcripts. For each cell, we calculated the coefficient of determination (R2) for a linear model fit. Still, Smart-Seq2 achieves the best performance.
-
-![5acb656ad0cf16c44e17f76f58ab07d1.png](en-resource://database/7787:0)@w=500
-*Figure 15 Sensitivity of scRNA-Seq Methods. ERCC expression values (counts per million reads for Smart-seq/C1 and Smart-seq2 and UMIs per million reads for all others) were correlated to their annotated molarity. Shown are the distributions of correlation coefficients (adjusted R2 of linear regression model) across methods. Each dot represents a cell/bead and each box represents the median and first and third quartiles.*
-
-##### C) Precision of Amplified Genes Is Strongly Increased by UMIs:
-While a high accuracy is necessary to compare absolute expression levels, one of the most common experimental aims is to compare relative expression levels to identify differentially ex- pressed genes or different cell types.
-
-Technical variation is substantial in scRNA-seq data primarily because a substantial fraction of mRNAs is lost during cDNA generation and small amounts of cDNA get amplified. Therefore, both the dropout probability and the amplification noise need to be considered when quantifying variation.
-
-Smart-seq2 detects the common set of 13,361 genes in more cells than the UMI methods, but it has, as expected, more amplification noise than the UMI-based methods (Upon deep sequencing, each UMI will be observed multiple times, and the number of original DNA molecules can be determined simply by counting each UMI only once). 
-
-##### D) Cost efficiency:
-![7c6ccdf6ffe69b13ea65170a0e0cd2da.png](en-resource://database/7789:0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+</a></li></ul></li></ul></li></ul></li></ul></li></ul></div><h2 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 34px; border-bottom: 1px solid #dbdbdb; color: #333;">Introduction</h2>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">It's good to be in a time that single cell transcriptom is easy to aquire with formulated protocols as well as good  to know these methods share certain brilliant commons that we can now easily follow up.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">It's been around a decade since <a href="https://www.ncbi.nlm.nih.gov/pubmed/19349980" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Tang et al., 2009</a> first proposed completely unbiased transcriptome-wide investigation of the mRNA in a single cell by taking advantage of high throughput DNA sequencing techonogy. Through years, technologies have been improved through <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">sensitivity, accuracy, cost efficiency and scalability.</strong></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"> </p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/TIM截图20190109142038.png" type="image/png" data-filename="TIM截图20190109142038.png" width="600"/><br/>
+                                 <em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 1 <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Scaling of scRNA-seq experiments</strong>. (<a href="https://www.nature.com/articles/nprot.2017.149" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Svensson et al., 2018</a>)</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"> </p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">All single cell RNA-seq protocols share a common initial step, where <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">transcribed RNA from cells can be converted to cDNA</strong>. The next step is an <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">amplification</strong>, using molecular biological methods such as polymerase chain reaction (PCR) or in vitro transcription (IVT). The subsequent steps, culminating in <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">sequencing</strong> allow the expression level of gene products to be quantified.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Most of these techniques can be categorized either based on  <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">amplification</strong> method, namely:</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">PCR after polyA tailing</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">IVT (in vitro transcription)</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">Template-switching</li>
+</ul>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">For most of the techniques direct or indirect derivation of these amplification method. I will walk though each method by its origin and applications for your better understanding.</p>
+<h2 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 34px; border-bottom: 1px solid #dbdbdb; color: #333;">scRNA-seq Techniques</h2>
+<h3 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 27px; color: #333;">1) PCR after polyA tailing</h3>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Technologies in this category exploit the mRNA polyA tail and devise primer properly for later PCR amplification (exponential increase with potein more bias compared to other linear amplification method).</p>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Technique origin （Kurimoto 2006 )</h4>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">In 2006, <a href="https://academic.oup.com/nar/article/34/5/e42/1146394" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Kurimoto et al.,</a> first proposed a method <em style="line-height: 160%; box-sizing: content-box; font-style: italic;">&quot;An improved single-cell cDNA amplification method for efficient high-density oligonucleotide microarray analysis&quot;</em> .</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">                     <img src="scRNA-seq Review_files/Image.png" type="image/png" data-filename="Image.png" width="500"/></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 2 <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Schematic diagram of cDNA amplification</strong>. The mRNA and cDNA are colored pink and orange, respectively. The V1, V3 and T7 promoter sequences are represented by blue, red and green boxes, respectively. The bars above the letters represent the complementary sequences.</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">This protocol shows a paradiam for polyA tailing PCR amplification with few key steps to be noticed:</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">Use V1 primer plus polyT to generate the first cDNA of template mRNA, and use Exonuclease I to digest unreacted primer.</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Add A at the end of first cDNA</strong> and use <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">RNaseH</strong> to digest RNA. (now, cDNA becomes template).</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">Reverse transcribe the new template with a new V3+polyT primer to get double stranded cDNA. PCR for 20 cycles.</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">Add T7 promoter PCR another 9 cycles. (<strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">T7 promoter is used for transcribe cDNA template to RNA. RNAs are required for Affymetrix chip downstream analysis</strong>).</p>
+</li>
+</ul>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Technique applications and derivations:</h4>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">a) sc mRNA-seq whole-stranscriptome (Tang 2009)</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">                            <img src="scRNA-seq Review_files/Image [1].png" type="image/png" data-filename="Image.png" width="500"/></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">                <em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 3 <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Schematic of the single-cell whole-transcriptome analysis.</strong><a href="https://www.nature.com/articles/nmeth.1315" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Tang et al., 2009</a></em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">This breakthrough work follows nearly the same idea as Kurimoto except for replacing array with sequencing (SOLiD system). Due to this reason, we could see that Tang didn't use T7 promoter any more.</p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">b) Quartz-seq 1&amp;2 (<a href="https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Sasagawa 2013</a>)</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">This method has been thoroughly reviewed by <a href="https://drive.google.com/open?id=1vq_mkT-UL1TcBkiynrfNDpDhMXEr2G_w" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Xiaochen</a>. Quartz-seq include steps:</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">Reverse transcription with an RT primer to generate the first-strand cDNAs from the target RNAs.</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">The second step is a primer digestion with exonuclease I; this is one of the key steps to prevent the synthesis of byproducts.</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">The third step is the addition of a poly-A tail to the 3’ ends of the first-strand cDNAs</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">The fourth step is the second-strand synthesis using a tagging primer, which prepares the substrate for subsequent amplifi- cation.</p>
+</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">
+<p style="line-height: 160%; box-sizing: content-box; color: #333; margin: 0;">The fifth step is a PCR enrichment reaction with a suppression PCR primer to ensure that a sufficient quantity ofDNA is obtained for the massively parallel sequencers or microarrays. All five steps are completed in <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">a single PCR tube</strong> without any purification.</p>
+</li>
+</ul>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [2].png" type="image/png" data-filename="Image.png" width="500"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Main improvements</strong> of Quartz-seq (compared to Kurimoto's method):</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Achieved robust suppression of byproduct synthesis;</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Exonuclease I</strong></li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Suppression PCR</strong> (byproduct cDNA is short which indicates a faster fasion for self hybridization. This short double strand cDNA is not subject to PCR amplification.)<br/>
+<img src="scRNA-seq Review_files/Image [3].png" type="image/png" data-filename="Image.png" width="500"/></li>
+</ul>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Identified a robust PCR enzyme that allows the use of a single-tube reaction;</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">MightyAmp DNA Polymerase</li>
+</ul>
+</li>
+<li style="line-height: 160%; box-sizing: content-box;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Determined the optimal conditions of reverse transcription (RT) and second-strand synthesis for the capturing mRNA and the first-strand cDNA.<br/>
+                <img src="scRNA-seq Review_files/Image [4].png" type="image/png" data-filename="Image.png" width="400"/></p>
+</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry into 384-well plate and cell barcode.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [5].png" type="image/png" data-filename="Image.png"/></p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">c) Other derivations:</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [6].png" type="image/png" data-filename="Image.png"/></p>
+<h3 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 27px; color: #333;">2) In vitro transcription (IVT) amplification</h3>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Technique origin （Ebrewine 1992 )</h4>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">IVT was first proposed by <a href="https://www.pnas.org/content/pnas/89/7/3010.full.pdf" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Ebrewine et al., 1992</a> and is a simple procedure that allows for template-directed synthesis of RNA molecules of any sequence from short oligonucleotides to those of several kilobases in μg to mg quantities. It is based on the engineering of a template that includes a bacteriophage promoter sequence (e.g. from the T7 coliphage) upstream of the sequence of interest followed by transcription using the corresponding RNA polymerase.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [7].png" type="image/png" data-filename="Image.png" width="500"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Compared to PCR (which grows exponentially), IVT takes adavantage of using cDNA as template and use T7 promoter to transcribe. IVT will not be biased towards GC content since cDNA is of high fidelity. The shortage of this method is the efficiency of amplification( 200 copies/round ). However, later methods will combine IVT and PCR to achieve higher quantity and less errors.</p>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Technique applications and derivations:</h4>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [8].png" type="image/png" data-filename="Image.png" width="700"/></p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">a) CEL-Seq 1&amp;2 (Hashimshony <a href="http://dx.doi.org/10.1016/j.celrep.2012.08.003" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">2012</a> &amp; <a href="http://dx.doi.org/10.1186/s13059-016-0938-8" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">2016</a>)</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol leveraged this for linear mRNA amplification from single cells. Here the RT adaptor also contains a T7 promoter, allowing the final double stranded DNA (dsDNA) to be transcribed into multiple copies of antisense RNA (aRNA).</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [9].png" type="image/png" data-filename="Image.png" width="700"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 6 The CEL-Seq Method</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Protocols</strong>:</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">The CEL-Seq method begins with a single-cell reverse-tran scription reaction using a primer designed with an anchored polyT, a unique barcode, the 50 Illumina sequencing adaptor, and a T7 promoter.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Second-strand synthesis is performed and then the cDNA samples are pooled(to obtain sufficient RNA from single cells for a single round of linear amplificatio) and consequently comprise sufficient template material for an IVT reaction. The amplified RNA is then subjected to directional RNA library preparation.</li>
+<li style="line-height: 160%; box-sizing: content-box;">The RNA is fragmented to a size distribution appropriate for sequencing, the Illumina 3' adaptor is added by ligation, RNA is reverse transcribed to DNA, and the 3'-most fragments that contain both Illumina adaptors and a barcode are selected.</li>
+<li style="line-height: 160%; box-sizing: content-box;">The resulting library undergoes paired-end sequencing, where the first read recovers the barcode, whereas the second identifies the mRNA transcript.</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Advantages</strong>:</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">Significantly reduced hands-on time both for the amplification and downstream pro- cessing (2- 3 days).</li>
+<li style="line-height: 160%; box-sizing: content-box;">The barcode is 8 bp in length and can be longer, the number of samples that may have unique barcodes in a given IVT is essentially unlimited.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Strand specificity (&gt;98% of exonic reads come from the sense strand).</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Limitations</strong>:</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">The CEL-Seq protocol selects for the single 3'-most fragment of each transcript. In contrast to virtually all other RNA-Seq methods.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Due to its strong 30 bias, the method is severely limited in its ability to distinguish alternative splice forms.</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">CEL-Seq 2 is optimized for higher sensitivity</strong>:<br/>
+Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:<br/>
+<img src="scRNA-seq Review_files/Image [10].png" type="image/png" data-filename="Image.png"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 7 Changes introduced to the protocol.</em></p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">Shortening the CEL-Seq primer from 92 to 82 nucleotides by reducing the length of the barcode from eight to six nucleotides, as well as shortening the T7 promoter and the Illumina 5'  adaptor.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Optimized the conversion of RNA to dsDNA by testing alternative commercially available reverse transcriptases for cDNA synthesis and polymerases for second-strand synthesis namely <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">SuperScript II</strong>.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Modified our method of dsDNA and aRNA clean-up from column to beads.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Ligation-free library preparation:  inserting the Illumina adaptor directly at the RT step as a5′-tail attached to a random hexamer, thus eliminating the ligation step and improves read mapping.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Use UMI, high throughput.</li>
+</ol>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">b) MARS-Seq (Jaitin <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">2014</a>)</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [11].png" type="image/png" data-filename="Image.png" width="500"/></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method.</p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">c) inDrop-Seq (Klein [2015](http://dx.doi.org/10.1016/j.cell.2015.04.</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">The inDrop platform encapsulates cells into droplets with lysis buffer, reverse transcription(RT) reagents, and barcoded oligonucleotide primers. mRNA released from each lysed cell remains trapped in the same droplet and is barcoded during synthesis of cDNA. After barcoding, material from all cells is combined by breaking the droplets, and the cDNA library is sequenced using established methods <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">CEL-seq</strong>.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">The major challenge is to ensure that each droplet carries primers encoding a different barcode. People use droplet to capsule barcode with single cell using Droplet device.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [12].png" type="image/png" data-filename="Image.png"/><br/>
+<img src="scRNA-seq Review_files/Image [13].png" type="image/png" data-filename="Image.png"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 8 Pipeline and Barcoding Hydrogel Microsphere Synthesis.</em></p>
+<h3 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 27px; color: #333;">3) Template-switching PCR</h3>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Technique origin</h4>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">From <a href="https://en.wikipedia.org/wiki/Template_switching_polymerase_chain_reaction" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">wiki</a>, the defination of TS-PCR is that:</p>
+<blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333; margin-top: 0; margin-bottom: 0;">Template-switching polymerase chain reaction (TS-PCR) is a method of reverse transcription and polymerase chain reaction (PCR) amplification that relies on a natural PCR primer sequence at the polyadenylation site a.k.a. poly(A) tail, and adds a second primer through the activity of murine leukemia virus reverse transcriptase.[1] This permits reading full cDNA sequence and can deliver high yield from single sources, even single cells that contain 10 to 30 picograms of mRNA, with relatively low levels (3-5%) of contaminating rRNA sequence.</p>
+</blockquote>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">A basic question is <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">the template is switching form what to what?</strong></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">To understand this question we could have a look at the figure from the first application of template switching application in single cell RNA sequencing <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">STRT-seq</strong> (<a href="http://www.ncbi.nlm.nih.gov/pubmed/20859030" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Islam 2011</a>):</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [14].png" type="image/png" data-filename="Image.png" width="500"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 9 Single-cell tagged reverse transcription (STRT).</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">The key steps of template switching are that:</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">Use olig-dT as primer to reverse transcribe target RNA to get the first cDNA strand with 3-6 added cytocines.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Add template-switching oligonucleotide（TSO）primer (ii in green, which has a GGG at the beginning, <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">right now the template become the first cDNA strand</strong>). The barcode is in green primer.</li>
+<li style="line-height: 160%; box-sizing: content-box;">The product is am- plified by single-primer PCR exploiting the template-suppression effect and is then immobilized on beads, fragmented, and A-tailed.</li>
+<li style="line-height: 160%; box-sizing: content-box;">The Illumina P2 adapter (blue) is ligated to the free end.</li>
+<li style="line-height: 160%; box-sizing: content-box;">The P1 adapter is introduced in the library PCR step, using a primer tailed with the P1 se- quence (blue)</li>
+<li style="line-height: 160%; box-sizing: content-box;">The final library is sequenced from the P1 side using a custom primer.</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">As we could imagine, we could add barcode either at 3' or 5':<br/>
+<img src="scRNA-seq Review_files/Image [15].png" type="image/png" data-filename="Image.png" width="600"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 9 TSO 3' or 5' scheme. <a href="https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">souce(10x genomics)</a>.</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Or we could not use barcode and build one library for each single cell to get the full length transcript which leads to SMART-Seq.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">To answer the question at the very beginning: <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Polimerase does not switch strands, it switches from mRNA as a template to TSO as template.</strong></p>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Technique applications and derivations:</h4>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">a) Smart-Seq 1&amp;2 ( Picelli <a href="https://www.nature.com/articles/nprot.2014.006" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">2014</a> )</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [16].png" type="image/png" data-filename="Image.png"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 10 Flowchart for Smart-seq2 library preparation scheme.</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Protocols:</strong></p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">Cell lysis: mild (hypotonic) lysis buffer contains free dNTPs and tailed oligo-dT oligonucleotides (30-nt poly-dT stretch and a 25-nt universal 5′ anchor sequence).</li>
+<li style="line-height: 160%; box-sizing: content-box;">RT reaction: using template-switching oligos(TSOs) and betaine with Mg2+ (overcome RNA secondary structures). Use polymerase Superscript II or KAPA HiFi. Temperature 50 °C for 2 min to promote unfolding of RNA secondary structures and then lower it to 42 °C for 2min to allow completion of RT. Repeat 10-15 cycles.</li>
+<li style="line-height: 160%; box-sizing: content-box;">template-switching reaction: M-MLV enzyme; Smart-seq2 uses a TSO carrying two riboguanosines in the third- and second-last positions and a modified guanosine to produce a locked nucleic acid (LNA) as the last base at the 3′ end which have 2 features: the enhanced thermal stability of the LNA monomers; and their ability to anneal strongly to the untemplated 3′ extension of the cDNA27.</li>
+<li style="line-height: 160%; box-sizing: content-box;">Tagmentation to quickly and efficiently construct sequencing libraries from the amplified cDNA. The tagmentation reaction takes advantage of a hyperactive derivative of the Tn5 transposase that catalyzes in vitro integration of predetermined oligonucleotides into target DNA29. The main advantage of this approach is that DNA fragmentation and adapter ligation occur in a single step, and size selection is not necessary.</li>
+<li style="line-height: 160%; box-sizing: content-box;">PCR. Fragments from previous step is of 200 - 600 bp.</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Strengths</strong>:</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">Full-length cDNAs, It is therefore possible to analyze all the exons of each transcript and to detect the different splice variants, a big advantage over previous methods. It also enables comprehensive SNP and mutation analysis, widening its field of application.</li>
+<li style="line-height: 160%; box-sizing: content-box;">It allows a high degree of multiplexing; up to 96 samples can be pooled and sequenced on a single lane of an Illumina sequencer.</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Limitations</strong>:</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;">Only valid for polyA tailed RNA.</li>
+<li style="line-height: 160%; box-sizing: content-box;">No strand-specific (because we have double-stranded cDNA before building library).</li>
+<li style="line-height: 160%; box-sizing: content-box;">Require a lot of labour for pooling samples.</li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"> </p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">b) Drop-Seq ( Macosko <a href="https://www.cell.com/abstract/S0092-8674(15)00549-8" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">2015</a> )</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [17].png" type="image/png" data-filename="Image.png"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 11 Extraction and Processing of Single-Cell Transcriptomes by Drop-Seq.</em></p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">c) SPLiT-Seq ( Rosenberg <a href="http://science.sciencemag.org/content/early/2018/03/14/science.aam8999.full" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">2018</a>)</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellular origin of RNA through combinatorial barcoding. It's cheap, require no additional equipment and efficient sample multiplexing.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [18].png" type="image/png" data-filename="Image.png"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 12 Labeling transcriptomes with split-pool barcoding. In each split-pool round, fixed cells or nuclei are randomly distributed into wells, and transcripts are labeled with well-specific barcodes. Barcoded RT primers are used in the first round. Second- and third-round barcodes are appended to cDNA through ligation. A fourth barcode is added to cDNA molecules by PCR during sequencing library preparation. The bottom schematic shows the final barcoded cDNA molecule.</em></p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"> </p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [19].png" type="image/png" data-filename="Image.png"/><br/>
+<img src="scRNA-seq Review_files/Image [20].png" type="image/png" data-filename="Image.png"/><br/>
+<img src="scRNA-seq Review_files/Image [21].png" type="image/png" data-filename="Image.png"/></p>
+<h2 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 34px; border-bottom: 1px solid #dbdbdb; color: #333;">Summary</h2>
+<h3 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 27px; color: #333;">1) Techniques combinations:</h3>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">If we go over single cell sequencing workflow and details of each method:<br/>
+<img src="scRNA-seq Review_files/Image [22].png" type="image/png" data-filename="Image.png"/><br/>
+We would find there are three main parts that varies in different methods:</p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Cell isolation</strong></li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Primer types</strong></li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Reverse transcribe from mRNA to cDNA</strong></li>
+</ul>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Every method is a combination of building blocks, will ou propose noval combinations?:<br/>
+<img src="scRNA-seq Review_files/Image [23].png" type="image/png" data-filename="Image.png"/></p>
+<h3 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 27px; color: #333;">2) Comparative analysis of different methods:</h3>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Here we summarize the findings of benchmarking work from <a href="https://10.1016/j.molcel.2017.01.023" style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Ziegenhain et al., 2017</a>.</p>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Background</h4>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Materials</strong>: 583 mouse embryonic stem cells. All libraries were sequenced to a reasonable level of saturation at one million reads.<br/>
+ <br/>
+<strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Technical Variable</strong>:</p>
+<ol style="line-height: 160%; box-sizing: content-box; display: block; padding-left: 30px; margin: 6px 0 10px; color: #333; list-style-type: decimal;">
+<li style="line-height: 160%; box-sizing: content-box;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Sensitivity</strong>:  the probability to capture and convert a particular mRNA transcript present in a single cell into a cDNA molecule present in the library.</li>
+<li style="line-height: 160%; box-sizing: content-box;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Accuracy</strong>:  how well the read quantification corresponds to the actual concentration of mRNAs.</li>
+<li style="line-height: 160%; box-sizing: content-box;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Precision</strong>: the precision with which this amplification occurs (i.e., the technical variation of the quantification).</li>
+<li style="line-height: 160%; box-sizing: content-box;"><strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">Cost</strong></li>
+</ol>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [24].png" type="image/png" data-filename="Image.png"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 13 Library preparation and features of six methods..</em></p>
+<h4 style="line-height: 160%; box-sizing: content-box; font-size: 20px; color: #333;">Results</h4>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">A) Number of genes detected (Sensitivity):</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [25].png" type="image/png" data-filename="Image.png"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 14 Sensitivity of scRNA-Seq Methods.</em></p>
+<ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333;">
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">Smart-seq2 detected the highest number of genes per cell with a median of 9,138.</li>
+<li style="line-height: 160%; box-sizing: content-box; position: relative;">Smart-seq2 is the most sensitive method, as it detects the highest number of genes per cell and the most genes in total across cells and has the most even coverage across transcripts.</li>
+</ul>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">B) Accuracy of scRNA-Seq Methods:</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">compared the observed expression values (counts per million or UMIs per million) with the known concentrations of the 92 <strong style="line-height: 160%; box-sizing: content-box; font-weight: 700;">ERCC</strong> transcripts. For each cell, we calculated the coefficient of determination (R2) for a linear model fit. Still, Smart-Seq2 achieves the best performance.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [26].png" type="image/png" data-filename="Image.png" width="500"/><br/>
+<em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Figure 15 Sensitivity of scRNA-Seq Methods. ERCC expression values (counts per million reads for Smart-seq/C1 and Smart-seq2 and UMIs per million reads for all others) were correlated to their annotated molarity. Shown are the distributions of correlation coefficients (adjusted R2 of linear regression model) across methods. Each dot represents a cell/bead and each box represents the median and first and third quartiles.</em></p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">C) Precision of Amplified Genes Is Strongly Increased by UMIs:</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">While a high accuracy is necessary to compare absolute expression levels, one of the most common experimental aims is to compare relative expression levels to identify differentially ex- pressed genes or different cell types.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Technical variation is substantial in scRNA-seq data primarily because a substantial fraction of mRNAs is lost during cDNA generation and small amounts of cDNA get amplified. Therefore, both the dropout probability and the amplification noise need to be considered when quantifying variation.</p>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;">Smart-seq2 detects the common set of 13,361 genes in more cells than the UMI methods, but it has, as expected, more amplification noise than the UMI-based methods (Upon deep sequencing, each UMI will be observed multiple times, and the number of original DNA molecules can be determined simply by counting each UMI only once).</p>
+<h5 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 16px; color: #333;">D) Cost efficiency:</h5>
+<p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><img src="scRNA-seq Review_files/Image [27].png" type="image/png" data-filename="Image.png"/></p>
+</div><center style="display:none !important;visibility:collapse !important;height:0 !important;white-space:nowrap;width:100%;overflow:hidden">%23%20scRNA-seq%20Review%20%0A*Auther%3A%20Xingzhao%20(Irene)%20Wen*%0A*Date%3A%20Jan%2010th%202019*%0A%0A%3E%22%20Since%20then%2C%20many%20studies%20have%20focused%20on%20cell%20characterisation%2C%20redefining%20the%20cell%2C%20not%20only%20as%20structural%2C%20but%20also%20as%20functional%20unit%20of%20life%20%22%20%E2%80%94%E2%80%94%20Arendt%0A%0A**Table%20of%20Contents%3A**%0A%5BTOC%5D%0A%0A%23%23%20Introduction%0AIt's%20good%20to%20be%20in%20a%20time%20that%20single%20cell%20transcriptom%20is%20easy%20to%20aquire%20with%20formulated%20protocols%20as%20well%20as%20good%20%20to%20know%20these%20methods%20share%20certain%20brilliant%20commons%20that%20we%20can%20now%20easily%20follow%20up.%20%0A%0AIt's%20been%20around%20a%20decade%20since%20%5BTang%20et%20al.%2C%202009%5D(https%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F19349980)%20first%20proposed%20completely%20unbiased%20transcriptome-wide%20investigation%20of%20the%20mRNA%20in%20a%20single%20cell%20by%20taking%20advantage%20of%20high%20throughput%20DNA%20sequencing%20techonogy.%20Through%20years%2C%20technologies%20have%20been%20improved%20through%20**sensitivity%2C%20accuracy%2C%20cost%20efficiency%20and%20scalability.**%20%0A%0A%26nbsp%3B%0A%0A!%5B2b9df47feda200bf61d723e78af74a14.png%5D(en-resource%3A%2F%2Fdatabase%2F7729%3A1)%40w%3D600%0A%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20%26nbsp%3B%20*Figure%201%20**Scaling%20of%20scRNA-seq%20experiments**.%20(%5BSvensson%20et%20al.%2C%202018%5D(https%3A%2F%2Fwww.nature.com%2Farticles%2Fnprot.2017.149))*%0A%0A%0A%26nbsp%3B%0A%0AAll%20single%20cell%20RNA-seq%20protocols%20share%20a%20common%20initial%20step%2C%20where%20**transcribed%20RNA%20from%20cells%20can%20be%20converted%20to%20cDNA**.%20The%20next%20step%20is%20an%20**amplification**%2C%20using%20molecular%20biological%20methods%20such%20as%20polymerase%20chain%20reaction%20(PCR)%20or%20in%20vitro%20transcription%20(IVT).%20The%20subsequent%20steps%2C%20culminating%20in%20**sequencing**%20allow%20the%20expression%20level%20of%20gene%20products%20to%20be%20quantified.%20%0A%0AMost%20of%20these%20techniques%20can%20be%20categorized%20either%20based%20on%20%20**amplification**%20method%2C%20namely%3A%0A%0A*%20%20PCR%20after%20polyA%20tailing%0A*%20%20IVT%20(in%20vitro%20transcription)%20%0A*%20%20Template-switching%0A%0AFor%20most%20of%20the%20techniques%20direct%20or%20indirect%20derivation%20of%20these%20amplification%20method.%20I%20will%20walk%20though%20each%20method%20by%20its%20origin%20and%20applications%20for%20your%20better%20understanding.%20%0A%0A%23%23%20scRNA-seq%20Techniques%0A%0A%23%23%23%201)%20PCR%20after%20polyA%20tailing%20%0ATechnologies%20in%20this%20category%20exploit%20the%20mRNA%20polyA%20tail%20and%20devise%20primer%20properly%20for%20later%20PCR%20amplification%20(exponential%20increase%20with%20potein%20more%20bias%20compared%20to%20other%20linear%20amplification%20method).%20%0A%0A%23%23%23%23%20Technique%20origin%20%EF%BC%88Kurimoto%202006%20)%0AIn%202006%2C%20%5BKurimoto%20et%20al.%2C%5D(https%3A%2F%2Facademic.oup.com%2Fnar%2Farticle%2F34%2F5%2Fe42%2F1146394)%20first%20proposed%20a%20method%20*%22An%20improved%20single-cell%20cDNA%20amplification%20method%20for%20efficient%20high-density%20oligonucleotide%20microarray%20analysis%22*%20.%20%0A%0A%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B!%5Bb50f8dee260be5a6d9e8ba696bc3a1e4.png%5D(en-resource%3A%2F%2Fdatabase%2F7733%3A1)%40w%3D500%0A%0A%0A*Figure%202%20**Schematic%20diagram%20of%20cDNA%20amplification**.%20The%20mRNA%20and%20cDNA%20are%20colored%20pink%20and%20orange%2C%20respectively.%20The%20V1%2C%20V3%20and%20T7%20promoter%20sequences%20are%20represented%20by%20blue%2C%20red%20and%20green%20boxes%2C%20respectively.%20The%20bars%20above%20the%20letters%20represent%20the%20complementary%20sequences.*%0A%0AThis%20protocol%20shows%20a%20paradiam%20for%20polyA%20tailing%20PCR%20amplification%20with%20few%20key%20steps%20to%20be%20noticed%3A%0A%0A-%20Use%20V1%20primer%20plus%20polyT%20to%20generate%20the%20first%20cDNA%20of%20template%20mRNA%2C%20and%20use%20Exonuclease%20I%20to%20digest%20unreacted%20primer.%20%0A%0A-%20**Add%20A%20at%20the%20end%20of%20first%20cDNA**%20and%20use%20**RNaseH**%20to%20digest%20RNA.%20(now%2C%20cDNA%20becomes%20template).%0A%0A-%20Reverse%20transcribe%20the%20new%20template%20with%20a%20new%20V3%2BpolyT%20primer%20to%20get%20double%20stranded%20cDNA.%20PCR%20for%2020%20cycles.%0A%0A-%20Add%20T7%20promoter%20PCR%20another%209%20cycles.%20(**T7%20promoter%20is%20used%20for%20transcribe%20cDNA%20template%20to%20RNA.%20RNAs%20are%20required%20for%20Affymetrix%20chip%20downstream%20analysis**).%20%0A%0A%0A%23%23%23%23%20Technique%20applications%20and%20derivations%3A%0A%0A%23%23%23%23%23%20a)%20sc%20mRNA-seq%20whole-stranscriptome%20(Tang%202009)%0A%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B!%5B1bdbcb11bbe1f5e76fd52d5e677aff4e.png%5D(en-resource%3A%2F%2Fdatabase%2F7735%3A1)%40w%3D500%0A%0A%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B*Figure%203%20**Schematic%20of%20the%20single-cell%20whole-transcriptome%20analysis.**%5BTang%20et%20al.%2C%202009%5D(https%3A%2F%2Fwww.nature.com%2Farticles%2Fnmeth.1315)*%20%0A%0AThis%20breakthrough%20work%20follows%20nearly%20the%20same%20idea%20as%20Kurimoto%20except%20for%20replacing%20array%20with%20sequencing%20(SOLiD%20system).%20Due%20to%20this%20reason%2C%20we%20could%20see%20that%20Tang%20didn't%20use%20T7%20promoter%20any%20more.%20%0A%0A%23%23%23%23%23%20b)%20Quartz-seq%201%262%20(%5BSasagawa%202013%5D(https%3A%2F%2Fgenomebiology.biomedcentral.com%2Farticles%2F10.1186%2Fgb-2013-14-4-r31))%20%0AThis%20method%20has%20been%20thoroughly%20reviewed%20by%20%5BXiaochen%5D(https%3A%2F%2Fdrive.google.com%2Fopen%3Fid%3D1vq_mkT-UL1TcBkiynrfNDpDhMXEr2G_w).%20Quartz-seq%20include%20steps%3A%0A%0A-%20Reverse%20transcription%20with%20an%20RT%20primer%20to%20generate%20the%20first-strand%20cDNAs%20from%20the%20target%20RNAs.%0A%0A-%20The%20second%20step%20is%20a%20primer%20digestion%20with%20exonuclease%20I%3B%20this%20is%20one%20of%20the%20key%20steps%20to%20prevent%20the%20synthesis%20of%20byproducts.%0A%0A-%20The%20third%20step%20is%20the%20addition%20of%20a%20poly-A%20tail%20to%20the%203%E2%80%99%20ends%20of%20the%20first-strand%20cDNAs%0A%0A-%20The%20fourth%20step%20is%20the%20second-strand%20synthesis%20using%20a%20tagging%20primer%2C%20which%20prepares%20the%20substrate%20for%20subsequent%20amplifi-%20cation.%20%0A%0A-%20The%20fifth%20step%20is%20a%20PCR%20enrichment%20reaction%20with%C2%A0a%20suppression%20PCR%20primer%20to%20ensure%20that%20a%20sufficient%20quantity%20ofDNA%20is%20obtained%20for%20the%20massively%20parallel%20sequencers%20or%20microarrays.%20All%20five%20steps%20are%20completed%20in%20**a%20single%20PCR%20tube**%20without%20any%20purification.%C2%A0%0A%0A!%5B1e262fea44db5d0ce69efe914c7938da.png%5D(en-resource%3A%2F%2Fdatabase%2F7739%3A1)%40w%3D500%0A*Figure%204%20Schematic%20of%20the%20whole-transcript%20amplification%20methods%20based%20on%20the%20poly-Atailing%20reaction*%20%0A%0A%20**Main%20improvements**%20of%20Quartz-seq%20(compared%20to%20Kurimoto's%20method)%3A%0A1)%20Achieved%20robust%20suppression%20of%20byproduct%20synthesis%3B%0A%20%20%20%20%0A%20%20%20%20-%20%20**Exonuclease%20I**%0A%20%20%20%20-%20**Suppression%20PCR**%20(byproduct%20cDNA%20is%20short%20which%20indicates%20a%20faster%20fasion%20for%20self%20hybridization.%20This%20short%20double%20strand%20cDNA%20is%20not%20subject%20to%20PCR%20amplification.)%20%0A%20%20%20%20!%5B5c88bfe4d72710cd5e1e8e1263e2f082.png%5D(en-resource%3A%2F%2Fdatabase%2F7741%3A1)%40w%3D500%0A%20%20%20%20%0A%20%20%20%20%0A2)%20Identified%20a%20robust%20PCR%20enzyme%20that%20allows%20the%20use%20of%20a%20single-tube%20reaction%3B%20%0A%0A%20%20%20%20-%20MightyAmp%20DNA%20Polymerase%0A%0A3)%20Determined%20the%20optimal%20conditions%20of%20reverse%20transcription%20(RT)%20and%20second-strand%20synthesis%20for%20the%20capturing%20mRNA%20and%20the%20first-strand%20cDNA.%0A%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B%26nbsp%3B!%5B51cc5aeef9a48561f3fa1e5e0bc4862c.png%5D(en-resource%3A%2F%2Fdatabase%2F7743%3A1)%40w%3D400%0A%0AQuartz-seq2%20is%20a%20high%20throughput%20version%20of%20Quartz-seq1%20combining%20Flow-cytometry%20into%20384-well%20plate%20and%20cell%20barcode.%20%0A%0A!%5Bd23bec373ec27ce1ef5f705c941a87a2.png%5D(en-resource%3A%2F%2Fdatabase%2F7747%3A1)%0A%0A%23%23%23%23%23%20c)%20Other%20derivations%3A%0A!%5Ba67ae467471ac4e2e89a3d3352d5f15d.png%5D(en-resource%3A%2F%2Fdatabase%2F7745%3A1)%0A%0A%0A%23%23%23%202)%20In%20vitro%20transcription%20(IVT)%20amplification%0A%23%23%23%23%20Technique%20origin%20%EF%BC%88Ebrewine%201992%20)%0AIVT%20was%20first%20proposed%20by%20%5BEbrewine%20et%20al.%2C%201992%5D(https%3A%2F%2Fwww.pnas.org%2Fcontent%2Fpnas%2F89%2F7%2F3010.full.pdf)%20and%20is%20a%20simple%20procedure%20that%20allows%20for%20template-directed%20synthesis%20of%20RNA%20molecules%20of%20any%20sequence%20from%20short%20oligonucleotides%20to%20those%20of%20several%20kilobases%20in%20%CE%BCg%20to%20mg%20quantities.%20It%20is%20based%20on%20the%20engineering%20of%20a%20template%20that%20includes%20a%20bacteriophage%20promoter%20sequence%20(e.g.%20from%20the%20T7%20coliphage)%20upstream%20of%20the%20sequence%20of%20interest%20followed%20by%20transcription%20using%20the%20corresponding%20RNA%20polymerase.%0A%0A!%5B6dbc6b35e754b9bf9fb5facbb73d69b8.png%5D(en-resource%3A%2F%2Fdatabase%2F7749%3A1)%40w%3D500%20%0A*Figure%205%20Schematic%20of%20the%20reamplification%20procedure%20used%20to%20achieve%20a%20millionfold%20amplification%20of%20the%20original%20RNA%20population%20from%20a%20single%20cell*%20%0A%0ACompared%20to%20PCR%20(which%20grows%20exponentially)%2C%20IVT%20takes%20adavantage%20of%20using%20cDNA%20as%20template%20and%20use%20T7%20promoter%20to%20transcribe.%20IVT%20will%20not%20be%20biased%20towards%20GC%20content%20since%20cDNA%20is%20of%20high%20fidelity.%20The%20shortage%20of%20this%20method%20is%20the%20efficiency%20of%20amplification(%20200%20copies%2Fround%20).%20However%2C%20later%20methods%20will%20combine%20IVT%20and%20PCR%20to%20achieve%20higher%20quantity%20and%20less%20errors.%20%0A%0A%0A%23%23%23%23%20Technique%20applications%20and%20derivations%3A%0A!%5Bd9282ae58a3c60c9c1f9071cac413d7a.png%5D(en-resource%3A%2F%2Fdatabase%2F7751%3A1)%40w%3D700%0A%0A%23%23%23%23%23%20a)%20CEL-Seq%201%262%20(Hashimshony%20%5B2012%5D(http%3A%2F%2Fdx.doi.org%2F10.1016%2Fj.celrep.2012.08.003)%20%26%20%5B2016%5D(http%3A%2F%2Fdx.doi.org%2F10.1186%2Fs13059-016-0938-8))%0AThe%20CEL-Seq%20(Cell%20Expression%20by%20Linear%20amplification%20and%20Sequencing)%20protocol%20leveraged%20this%20for%20linear%20mRNA%20amplification%20from%20single%20cells.%20Here%20the%20RT%20adaptor%20also%20contains%20a%20T7%20promoter%2C%20allowing%20the%20final%20double%20stranded%20DNA%20(dsDNA)%20to%20be%20transcribed%20into%20multiple%20copies%20of%20antisense%20RNA%20(aRNA).%20%0A%0A!%5B22a8c0ca0b3de40deb48928e644214b3.png%5D(en-resource%3A%2F%2Fdatabase%2F7753%3A1)%40w%3D700%20%0A*Figure%206%20The%20CEL-Seq%20Method*%0A%0A**Protocols**%3A%20%0A1)%20%20The%20CEL-Seq%20method%20begins%20with%20a%20single-cell%20reverse-tran%20scription%20reaction%20using%20a%20primer%20designed%20with%20an%20anchored%20polyT%2C%20a%20unique%20barcode%2C%20the%2050%20Illumina%20sequencing%20adaptor%2C%20and%20a%20T7%20promoter.%0A2)%20%20Second-strand%20synthesis%20is%20performed%20and%20then%20the%20cDNA%20samples%20are%20pooled(to%20obtain%20sufficient%20RNA%20from%20single%20cells%20for%20a%20single%20round%20of%20linear%20amplificatio)%20and%20consequently%20comprise%20sufficient%20template%20material%20for%20an%20IVT%20reaction.%20The%20amplified%20RNA%20is%20then%20subjected%20to%20directional%20RNA%20library%20preparation.%0A3)%20%20The%20RNA%20is%20fragmented%20to%20a%20size%20distribution%20appropriate%20for%20sequencing%2C%20the%20Illumina%203'%20adaptor%20is%20added%20by%20ligation%2C%20RNA%20is%20reverse%20transcribed%20to%20DNA%2C%20and%20the%203'-most%20fragments%20that%20contain%20both%20Illumina%20adaptors%20and%20a%20barcode%20are%20selected.%20%0A4)%20%20The%20resulting%20library%20undergoes%20paired-end%20sequencing%2C%20where%20the%20first%20read%20recovers%20the%20barcode%2C%20whereas%20the%20second%20identifies%20the%20mRNA%20transcript.%20%0A%0A**Advantages**%3A%0A1)%20%20Significantly%20reduced%20hands-on%20time%20both%20for%20the%20amplification%20and%20downstream%20pro-%20cessing%20(2-%203%C2%A0days).%0A2)%20%20The%20barcode%20is%208%20bp%20in%20length%20and%20can%20be%20longer%2C%20the%20number%20of%20samples%20that%20may%20have%20unique%20barcodes%20in%20a%20given%20IVT%20is%20essentially%20unlimited.%20%0A3)%20%20Strand%20specificity%C2%A0(%3E98%25%20of%20exonic%20reads%20come%20from%20the%20sense%20strand).%0A%0A**Limitations**%3A%0A1)%20%20The%20CEL-Seq%20protocol%20selects%20for%20the%20single%203'-most%20fragment%20of%20each%20transcript.%20In%20contrast%20to%20virtually%20all%20other%20RNA-Seq%20methods.%0A2)%20%20Due%20to%20its%20strong%2030%20bias%2C%20the%20method%20is%20severely%20limited%20in%20its%20ability%20to%20distinguish%20alternative%20splice%20forms.%0A%0A**CEL-Seq%202%20is%20optimized%20for%20higher%20sensitivity**%3A%0ASeeking%20to%20improve%20CEL-Seq's%20efficiency%2C%20CEL-Seq2%20introduced%20several%20changes%3A%0A!%5B132b35ab6c6cb2396d35b8df5e75e525.png%5D(en-resource%3A%2F%2Fdatabase%2F7755%3A1)%0A*Figure%207%20Changes%20introduced%20to%20the%20protocol.*%20%0A%0A1)%20%20Shortening%20the%20CEL-Seq%20primer%20from%2092%20to%2082%20nucleotides%20by%20reducing%20the%20length%20of%20the%20barcode%20from%20eight%20to%20six%20nucleotides%2C%20as%20well%20as%20shortening%20the%20T7%20promoter%20and%20the%20Illumina%205'%20%20adaptor.%0A2)%20%20Optimized%20the%20conversion%20of%20RNA%20to%20dsDNA%20by%20testing%20alternative%20commercially%20available%20reverse%20transcriptases%20for%20cDNA%20synthesis%20and%20polymerases%20for%20second-strand%20synthesis%20namely%20**SuperScript%20II**.%0A3)%20%20Modified%20our%20method%20of%20dsDNA%20and%20aRNA%20clean-up%20from%20column%20to%20beads.%0A4)%20%20Ligation-free%20library%20preparation%3A%20%20inserting%20the%20Illumina%20adaptor%20directly%20at%20the%20RT%20step%20as%20a5%E2%80%B2-tail%20attached%20to%20a%20random%20hexamer%2C%20thus%20eliminating%20the%20ligation%20step%20and%20improves%20read%20mapping.%0A5)%20%20Use%20UMI%2C%20high%20throughput.%20%0A%20%20%0A%0A%23%23%23%23%23%20b)%20MARS-Seq%20(Jaitin%20%5B2014%5D(https%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpmc%2Farticles%2FPMC4412462%2F))%0A%0A!%5Bc777e5a11a657b5d0c69cf07e8d573d4.png%5D(en-resource%3A%2F%2Fdatabase%2F7757%3A1)%40w%3D500%0A%0AIn%20short%2C%20MARS-Seq%20use%20the%20same%203'%20adaptor%20ligation%20method%20as%20CEL-Seq1%20but%20different%20in%20Cell%20isolation%20method.%20%0A%0A%23%23%23%23%23%20c)%20inDrop-Seq%20(Klein%20%5B2015%5D(http%3A%2F%2Fdx.doi.org%2F10.1016%2Fj.cell.2015.04.%0AThe%20inDrop%20platform%20encapsulates%20cells%20into%20droplets%20with%20lysis%20buffer%2C%20reverse%20transcription(RT)%20reagents%2C%20and%20barcoded%20oligonucleotide%20primers.%20mRNA%20released%20from%20each%20lysed%20cell%20remains%20trapped%20in%20the%20same%20droplet%20and%20is%20barcoded%20during%20synthesis%20of%20cDNA.%20After%20barcoding%2C%20material%20from%20all%20cells%20is%20combined%20by%20breaking%20the%20droplets%2C%20and%20the%20cDNA%20library%20is%20sequenced%20using%20established%20methods%20**CEL-seq**.%0A%0AThe%20major%20challenge%20is%20to%20ensure%20that%20each%20droplet%20carries%20primers%20encoding%20a%20different%20barcode.%20People%20use%20droplet%20to%20capsule%20barcode%20with%20single%20cell%20using%20Droplet%20device.%20%20%0A%0A!%5Bf829e341be60ad663c4f85c63f85d8bd.png%5D(en-resource%3A%2F%2Fdatabase%2F7763%3A1)%0A!%5Baeed70dc92744b477f071019277f4081.png%5D(en-resource%3A%2F%2Fdatabase%2F7765%3A1)%0A*Figure%208%20Pipeline%20and%20Barcoding%20Hydrogel%20Microsphere%20Synthesis.*%20%0A%0A%0A%0A%23%23%23%203)%20Template-switching%20PCR%20%0A%0A%23%23%23%23%20Technique%20origin%20%0A%0AFrom%20%5Bwiki%5D(https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FTemplate_switching_polymerase_chain_reaction)%2C%20the%20defination%20of%20TS-PCR%20is%20that%3A%0A%3E%20Template-switching%20polymerase%20chain%20reaction%C2%A0(TS-PCR)%20is%20a%20method%20of%C2%A0reverse%20transcription%C2%A0and%C2%A0polymerase%20chain%20reaction%C2%A0(PCR)%20amplification%20that%20relies%20on%20a%20natural%C2%A0PCR%20primer%C2%A0sequence%20at%20the%C2%A0polyadenylation%C2%A0site%20a.k.a.%20poly(A)%20tail%2C%20and%20adds%20a%20second%20primer%20through%20the%20activity%20of%C2%A0murine%20leukemia%20virus%C2%A0reverse%20transcriptase.%5B1%5D%C2%A0This%20permits%20reading%20full%C2%A0cDNA%C2%A0sequence%20and%20can%20deliver%20high%20yield%20from%20single%20sources%2C%20even%20single%20cells%20that%20contain%2010%20to%2030%C2%A0picograms%C2%A0of%20mRNA%2C%20with%20relatively%20low%20levels%20(3-5%25)%20of%20contaminating%C2%A0rRNA%C2%A0sequence.%C2%A0%0A%0AA%20basic%20question%20is%20**the%20template%20is%20switching%20form%20what%20to%20what%3F**%0A%0ATo%20understand%20this%20question%20we%20could%20have%20a%20look%20at%20the%20figure%20from%20the%20first%20application%20of%20template%20switching%20application%20in%20single%20cell%20RNA%20sequencing%20**STRT-seq**%20(%5BIslam%202011%5D(http%3A%2F%2Fwww.ncbi.nlm.nih.gov%2Fpubmed%2F20859030))%3A%0A%0A!%5B325e6081bccd87516f717160658ad370.png%5D(en-resource%3A%2F%2Fdatabase%2F7767%3A1)%40w%3D500%0A*Figure%209%20Single-cell%20tagged%20reverse%20transcription%20(STRT).*%20%0A%0AThe%20key%20steps%20of%20template%20switching%20are%20that%3A%0A1)%20%20Use%20olig-dT%20as%20primer%20to%20reverse%20transcribe%20target%20RNA%20to%20get%20the%20first%20cDNA%20strand%20with%203-6%20added%20cytocines.%0A2)%20%20Add%20template-switching%20oligonucleotide%EF%BC%88TSO%EF%BC%89primer%20(ii%20in%20green%2C%20which%20has%20a%20GGG%20at%20the%20beginning%2C%20**right%20now%20the%20template%20become%20the%20first%20cDNA%20strand**).%20The%20barcode%20is%20in%20green%20primer.%0A3)%20%20The%20product%20is%20am-%20plified%20by%20single-primer%20PCR%20exploiting%20the%20template-suppression%20effect%20and%20is%20then%20immobilized%20on%20beads%2C%20fragmented%2C%20and%20A-tailed.%20%0A4)%20%20The%20Illumina%20P2%20adapter%20(blue)%20is%20ligated%20to%20the%20free%20end.%0A5)%20%20The%20P1%20adapter%20is%20introduced%20in%20the%20library%20PCR%20step%2C%20using%20a%20primer%20tailed%20with%20the%20P1%20se-%20quence%20(blue)%0A6)%20%20The%20final%20library%20is%20sequenced%20from%20the%20P1%20side%20using%20a%20custom%20primer.%0A%0AAs%20we%20could%20imagine%2C%20we%20could%20add%20barcode%20either%20at%203'%20or%205'%3A%0A!%5Ba58e2b89f7c852a62ae983b0dcd822b7.png%5D(en-resource%3A%2F%2Fdatabase%2F7769%3A0)%40w%3D600%0A*Figure%209%20TSO%203'%20or%205'%20scheme.%20%5Bsouce(10x%20genomics)%5D(https%3A%2F%2Fkb.10xgenomics.com%2Fhc%2Fen-us%2Farticles%2F360001493051-What-is-a-template-switch-oligo-TSO-).*%0A%0AOr%20we%20could%20not%20use%20barcode%20and%20build%20one%20library%20for%20each%20single%20cell%20to%20get%20the%20full%20length%20transcript%20which%20leads%20to%20SMART-Seq.%20%0A%0ATo%20answer%20the%20question%20at%20the%20very%20beginning%3A%20**Polimerase%20does%20not%20switch%20strands%2C%20it%C2%A0switches%20from%20mRNA%20as%20a%20template%20to%20TSO%20as%20template.**%0A%0A%23%23%23%23%20Technique%20applications%20and%20derivations%3A%0A%23%23%23%23%23%20a)%20Smart-Seq%201%262%20(%20Picelli%20%5B2014%5D(https%3A%2F%2Fwww.nature.com%2Farticles%2Fnprot.2014.006)%20)%0A%0A!%5B532715c2d4c4416b13972dcd07f33afd.png%5D(en-resource%3A%2F%2Fdatabase%2F7771%3A0)%0A*Figure%2010%20Flowchart%20for%20Smart-seq2%20library%20preparation%20scheme.*%0A%0A**Protocols%3A**%0A1)%20%20Cell%20lysis%3A%20mild%20(hypotonic)%20lysis%20buffer%20contains%20free%20dNTPs%20and%20tailed%20oligo-dT%20oligonucleotides%20(30-nt%20poly-dT%20stretch%20and%20a%2025-nt%20universal%205%E2%80%B2%20anchor%20sequence).%0A2)%20%20RT%20reaction%3A%20using%20template-switching%20oligos(TSOs)%20and%20betaine%20with%20Mg2%2B%20(overcome%20RNA%20secondary%20structures).%20Use%20polymerase%20Superscript%20II%20or%20KAPA%20HiFi.%20Temperature%2050%20%C2%B0C%20for%202%20min%20to%20promote%20unfolding%20of%20RNA%20secondary%20structures%20and%20then%20lower%20it%20to%2042%20%C2%B0C%20for%202min%20to%20allow%20completion%20of%20RT.%20Repeat%2010-15%20cycles.%0A3)%20%20template-switching%20reaction%3A%20M-MLV%20enzyme%3B%20Smart-seq2%20uses%20a%20TSO%20carrying%20two%20riboguanosines%20in%20the%20third-%20and%20second-last%20positions%20and%20a%20modified%20guanosine%20to%20produce%20a%20locked%20nucleic%20acid%20(LNA)%20as%20the%20last%20base%20at%20the%203%E2%80%B2%20end%20which%20have%202%20features%3A%20the%20enhanced%20thermal%20stability%20of%20the%20LNA%20monomers%3B%20and%20their%20ability%20to%20anneal%20strongly%20to%20the%20untemplated%203%E2%80%B2%20extension%20of%20the%20cDNA27.%0A4)%20%20Tagmentation%20to%20quickly%20and%20efficiently%20construct%20sequencing%20libraries%20from%20the%20amplified%20cDNA.%20The%20tagmentation%20reaction%20takes%20advantage%20of%20a%20hyperactive%20derivative%20of%20the%20Tn5%20transposase%20that%20catalyzes%20in%20vitro%20integration%20of%20predetermined%20oligonucleotides%20into%20target%20DNA29.%20The%20main%20advantage%20of%20this%20approach%20is%20that%20DNA%20fragmentation%20and%20adapter%20ligation%20occur%20in%20a%20single%20step%2C%20and%20size%20selection%20is%20not%20necessary.%20%0A5)%20PCR.%20Fragments%20from%20previous%20step%20is%20of%20200%20-%20600%20bp.%20%0A%0A**Strengths**%3A%0A1)%20%20Full-length%20cDNAs%2C%20It%20is%20therefore%20possible%20to%20analyze%20all%20the%20exons%20of%20each%20transcript%20and%20to%20detect%20the%20different%20splice%20variants%2C%20a%20big%20advantage%20over%20previous%20methods.%20It%20also%20enables%20comprehensive%20SNP%20and%20mutation%20analysis%2C%20widening%20its%20field%20of%20application.%0A2)%20%20It%20allows%20a%20high%20degree%20of%20multiplexing%3B%20up%20to%2096%20samples%20can%20be%20pooled%20and%20sequenced%20on%20a%20single%20lane%20of%20an%20Illumina%20sequencer.%0A%0A**Limitations**%3A%0A1)%20%20Only%20valid%20for%20polyA%20tailed%20RNA.%0A2)%20%20No%20strand-specific%20(because%20we%20have%20double-stranded%20cDNA%20before%20building%20library).%0A3)%20%20Require%20a%20lot%20of%20labour%20for%20pooling%20samples.%20%0A%0A%26nbsp%3B%0A%0A%23%23%23%23%23%20b)%20Drop-Seq%20(%20Macosko%20%5B2015%5D(https%3A%2F%2Fwww.cell.com%2Fabstract%2FS0092-8674(15)00549-8)%20)%0A%0A!%5B40486cd33d5cd989c110f5b46413ce9f.png%5D(en-resource%3A%2F%2Fdatabase%2F7773%3A0)%0A*Figure%2011%20Extraction%20and%20Processing%20of%20Single-Cell%20Transcriptomes%20by%20Drop-Seq.*%0A%0A%23%23%23%23%23%20c)%20SPLiT-Seq%20(%20Rosenberg%20%5B2018%5D(http%3A%2F%2Fscience.sciencemag.org%2Fcontent%2Fearly%2F2018%2F03%2F14%2Fscience.aam8999.full))%0A%0ASplit-pool%20ligation-based%20transcriptome%20sequencing%20(SPLiT-seq)%20labels%20the%20cellular%20origin%20of%20RNA%20through%20combinatorial%20barcoding.%20It's%20cheap%2C%20require%20no%20additional%20equipment%20and%20efficient%20sample%20multiplexing.%20%0A%0A!%5B20e1722885e28fd2c0ed60d11243f249.png%5D(en-resource%3A%2F%2Fdatabase%2F7775%3A0)%0A*Figure%2012%20Labeling%20transcriptomes%20with%20split-pool%20barcoding.%20In%20each%20split-pool%20round%2C%20fixed%20cells%20or%20nuclei%20are%20randomly%20distributed%20into%20wells%2C%20and%20transcripts%20are%20labeled%20with%20well-specific%20barcodes.%20Barcoded%20RT%20primers%20are%20used%20in%20the%20first%20round.%20Second-%20and%20third-round%20barcodes%20are%20appended%20to%20cDNA%20through%20ligation.%20A%20fourth%20barcode%20is%20added%20to%20cDNA%20molecules%20by%20PCR%20during%20sequencing%20library%20preparation.%20The%20bottom%20schematic%20shows%20the%20final%20barcoded%20cDNA%20molecule.*%0A%0A%26nbsp%3B%0A%0A!%5Bb4d383706f57802fedfcbb0d94f35b9b.png%5D(en-resource%3A%2F%2Fdatabase%2F7777%3A0)%0A!%5B618e3887c5cee70782f58a708ebdf822.png%5D(en-resource%3A%2F%2Fdatabase%2F7779%3A0)%0A!%5Bdea831fa0c70fe03cda8384923928a41.png%5D(en-resource%3A%2F%2Fdatabase%2F7781%3A0)%0A%0A%23%23%20Summary%0A%23%23%23%201)%20Techniques%20combinations%3A%0AIf%20we%20go%20over%20single%20cell%20sequencing%20workflow%20and%20details%20of%20each%20method%3A%0A!%5B303ae0aff0ed6a555053c8e622fba7a0.png%5D(en-resource%3A%2F%2Fdatabase%2F7791%3A0)%0AWe%20would%20find%20there%20are%20three%20main%20parts%20that%20varies%20in%20different%20methods%3A%0A%0A*%20**Cell%20isolation**%0A*%20**Primer%20types**%0A*%20**Reverse%20transcribe%20from%20mRNA%20to%20cDNA**%0A%0AEvery%20method%20is%20a%20combination%20of%20building%20blocks%2C%20will%20ou%20propose%20noval%20combinations%3F%3A%0A!%5B3f51dd0c54eebfef3033fd1ef17d2044.png%5D(en-resource%3A%2F%2Fdatabase%2F7797%3A0)%0A%0A%0A%0A%23%23%23%202)%20Comparative%20analysis%20of%20different%20methods%3A%0A%0AHere%20we%20summarize%20the%20findings%20of%20benchmarking%20work%20from%20%5BZiegenhain%20et%20al.%2C%202017%5D(10.1016%2Fj.molcel.2017.01.023).%20%0A%23%23%23%23%20Background%0A**Materials**%3A%20583%20mouse%20embryonic%20stem%20cells.%20All%20libraries%20were%20sequenced%20to%20a%20reasonable%20level%20of%20saturation%20at%20one%20million%20reads.%0A%26nbsp%3B%0A**Technical%20Variable**%3A%0A1)%20%20**Sensitivity**%3A%20%20the%20probability%20to%20capture%20and%20convert%20a%20particular%20mRNA%20transcript%20present%20in%20a%20single%20cell%20into%20a%20cDNA%20molecule%20present%20in%20the%20library.%0A2)%20%20**Accuracy**%3A%20%20how%20well%20the%20read%20quantification%20corresponds%20to%20the%20actual%20concentration%20of%20mRNAs.%0A3)%20%20**Precision**%3A%20the%20precision%20with%20which%20this%20amplification%20occurs%20(i.e.%2C%20the%20technical%20variation%20of%20the%20quantification).%0A4)%20%20**Cost**%0A%0A!%5B8f99051d120746d1570dea5105bc437d.png%5D(en-resource%3A%2F%2Fdatabase%2F7783%3A0)%0A*Figure%2013%20Library%20preparation%20and%20features%20of%20six%20methods..*%0A%0A%23%23%23%23%20Results%0A%23%23%23%23%23%20A)%20Number%20of%20genes%20detected%20(Sensitivity)%3A%0A%0A!%5B00408c2c7bac899848a8edd30688a3fc.png%5D(en-resource%3A%2F%2Fdatabase%2F7785%3A0)%0A*Figure%2014%20Sensitivity%20of%20scRNA-Seq%20Methods.*%0A%0A*%20Smart-seq2%20detected%20the%20highest%20number%20of%20genes%20per%20cell%20with%20a%20median%20of%209%2C138.%0A*%20Smart-seq2%20is%20the%20most%20sensitive%20method%2C%20as%20it%20detects%20the%20highest%20number%20of%20genes%20per%20cell%20and%20the%20most%20genes%20in%20total%20across%20cells%20and%20has%20the%20most%20even%20coverage%20across%20transcripts.%0A%0A%23%23%23%23%23%20B)%20Accuracy%20of%20scRNA-Seq%20Methods%3A%0Acompared%20the%20observed%20expression%20values%20(counts%20per%20million%20or%20UMIs%20per%20million)%20with%20the%20known%20concentrations%20of%20the%2092%20**ERCC**%20transcripts.%20For%20each%20cell%2C%20we%20calculated%20the%20coefficient%20of%20determination%20(R2)%20for%20a%20linear%20model%20fit.%20Still%2C%20Smart-Seq2%20achieves%20the%20best%20performance.%0A%0A!%5B5acb656ad0cf16c44e17f76f58ab07d1.png%5D(en-resource%3A%2F%2Fdatabase%2F7787%3A0)%40w%3D500%0A*Figure%2015%20Sensitivity%20of%20scRNA-Seq%20Methods.%20ERCC%20expression%20values%20(counts%20per%20million%20reads%20for%20Smart-seq%2FC1%20and%20Smart-seq2%20and%20UMIs%20per%20million%20reads%20for%20all%20others)%20were%20correlated%20to%20their%20annotated%20molarity.%20Shown%20are%20the%20distributions%20of%20correlation%20coefficients%20(adjusted%20R2%20of%20linear%20regression%20model)%20across%20methods.%20Each%20dot%20represents%20a%20cell%2Fbead%20and%20each%20box%20represents%20the%20median%20and%20first%20and%20third%20quartiles.*%0A%0A%23%23%23%23%23%20C)%20Precision%20of%20Amplified%20Genes%20Is%20Strongly%20Increased%20by%20UMIs%3A%0AWhile%20a%20high%20accuracy%20is%20necessary%20to%20compare%20absolute%20expression%20levels%2C%20one%20of%20the%20most%20common%20experimental%20aims%20is%20to%20compare%20relative%20expression%20levels%20to%20identify%20differentially%20ex-%20pressed%20genes%20or%20different%20cell%20types.%0A%0ATechnical%20variation%20is%20substantial%20in%20scRNA-seq%20data%20primarily%20because%20a%20substantial%20fraction%20of%20mRNAs%20is%20lost%20during%20cDNA%20generation%20and%20small%20amounts%20of%20cDNA%20get%20amplified.%20Therefore%2C%20both%20the%20dropout%20probability%20and%20the%20amplification%20noise%20need%20to%20be%20considered%20when%20quantifying%20variation.%0A%0ASmart-seq2%20detects%20the%20common%20set%20of%2013%2C361%20genes%20in%20more%20cells%20than%20the%20UMI%20methods%2C%20but%20it%20has%2C%20as%20expected%2C%20more%20amplification%20noise%20than%20the%20UMI-based%20methods%20(Upon%20deep%20sequencing%2C%20each%20UMI%20will%20be%20observed%20multiple%20times%2C%20and%20the%20number%20of%20original%20DNA%20molecules%20can%20be%20determined%20simply%20by%20counting%20each%20UMI%20only%20once).%20%0A%0A%23%23%23%23%23%20D)%20Cost%20efficiency%3A%0A!%5B7c6ccdf6ffe69b13ea65170a0e0cd2da.png%5D(en-resource%3A%2F%2Fdatabase%2F7789%3A0)%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A%0A</center></span>
+</div></body></html> 
