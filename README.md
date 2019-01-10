@@ -19,7 +19,7 @@
 </a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Technique applications and derivations:
 </a><ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;"><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">a) CEL-Seq 1&amp;2 (Hashimshony 2012 &amp; 2016)
 </a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">b) MARS-Seq (Jaitin 2014)
-</a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">c) inDrop-Seq (Klein [2015](http://dx.doi.org/10.1016/j.cell.2015.04.
+</a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">c) inDrop-Seq (Klein 2015)
 </a></li></ul></li></ul></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">3) Template-switching PCR
 </a><ul style="line-height: 160%; box-sizing: content-box; display: block; list-style-type: disc; padding-left: 30px; margin: 6px 0 10px; color: #333; margin-top: 0; margin-bottom: 0;"><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Technique origin
 </a></li><li style="line-height: 160%; box-sizing: content-box; position: relative;"><a style="line-height: 160%; box-sizing: content-box; text-decoration: underline; color: #5286bc;">Technique applications and derivations:
@@ -38,7 +38,7 @@
 </a></li></ul></li></ul></li></ul></li></ul></li></ul></div>
 
 ## Introduction
-It's good to be in a time that single cell transcriptom is easy to aquire with formulated protocols as well as good  to know these methods share certain brilliant commons that we can now easily follow up. 
+It's good to be in a time that single cell transcriptom is easy to aquire with formulated protocols as well as to know these methods share certain commons that we can now easily follow up. 
 
 It's been around a decade since [Tang et al., 2009](https://www.ncbi.nlm.nih.gov/pubmed/19349980) first proposed completely unbiased transcriptome-wide investigation of the mRNA in a single cell by taking advantage of high throughput DNA sequencing techonogy. Through years, technologies have been improved through **sensitivity, accuracy, cost efficiency and scalability.** 
 
@@ -52,7 +52,7 @@ It's been around a decade since [Tang et al., 2009](https://www.ncbi.nlm.nih.gov
 
 &nbsp;
 
-All single cell RNA-seq protocols share a common initial step, where **transcribed RNA from cells can be converted to cDNA**. The next step is an **amplification**, using molecular biological methods such as polymerase chain reaction (PCR) or in vitro transcription (IVT). The subsequent steps, culminating in **sequencing** allow the expression level of gene products to be quantified. 
+All single cell RNA-seq protocols share a common initial step, where **transcribed RNA from cells can be converted to cDNA**. The next step is **amplification**, using molecular biological methods such as polymerase chain reaction (PCR) or in vitro transcription (IVT). The subsequent steps, culminating in **sequencing** allow the expression level of gene products to be quantified. 
 
 Most of these techniques can be categorized either based on  **amplification** method, namely:
 
@@ -65,9 +65,9 @@ For most of the techniques direct or indirect derivation of these amplification 
 ## scRNA-seq Techniques
 
 ### 1) PCR after polyA tailing 
-Technologies in this category exploit the mRNA polyA tail and devise primer properly for later PCR amplification (exponential increase with potein more bias compared to other linear amplification method). 
+Technologies in this category exploit the mRNA polyA tail and devise primer properly for later PCR amplification (exponential increase with potential more bias compared to linear amplification methods). 
 
-#### Technique origin （Kurimoto 2006 )
+#### Technique origin (Kurimoto 2006)
 In 2006, [Kurimoto et al.,](https://academic.oup.com/nar/article/34/5/e42/1146394) first proposed a method *"An improved single-cell cDNA amplification method for efficient high-density oligonucleotide microarray analysis"* . 
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
