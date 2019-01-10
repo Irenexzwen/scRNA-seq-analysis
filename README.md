@@ -46,6 +46,7 @@ It's been around a decade since [Tang et al., 2009](https://www.ncbi.nlm.nih.gov
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/TIM%E6%88%AA%E5%9B%BE20190109142038.png">
 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+
 *Figure 1 Scaling of scRNA-seq experiments. ([Svensson et al., 2018](https://www.nature.com/articles/nprot.2017.149))*
 
 
@@ -108,6 +109,7 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 - The fifth step is a PCR enrichment reaction with a suppression PCR primer to ensure that a sufficient quantity ofDNA is obtained for the massively parallel sequencers or microarrays. All five steps are completed in **a single PCR tube** without any purification. 
 
 ![1e262fea44db5d0ce69efe914c7938da.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B2%5D.png)
+
 *Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction* 
 
  **Main improvements** of Quartz-seq (compared to Kurimoto's method):
@@ -123,7 +125,9 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
     - MightyAmp DNA Polymerase
 
 3) Determined the optimal conditions of reverse transcription (RT) and second-strand synthesis for the capturing mRNA and the first-strand cDNA.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![51cc5aeef9a48561f3fa1e5e0bc4862c.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B4%5D.png)
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![51cc5aeef9a48561f3fa1e5e0bc4862c.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B4%5D.png)
 
 Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry into 384-well plate and cell barcode. 
 
@@ -138,6 +142,7 @@ Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry
 IVT was first proposed by [Ebrewine et al., 1992](https://www.pnas.org/content/pnas/89/7/3010.full.pdf) and is a simple procedure that allows for template-directed synthesis of RNA molecules of any sequence from short oligonucleotides to those of several kilobases in μg to mg quantities. It is based on the engineering of a template that includes a bacteriophage promoter sequence (e.g. from the T7 coliphage) upstream of the sequence of interest followed by transcription using the corresponding RNA polymerase.
 
 ![6dbc6b35e754b9bf9fb5facbb73d69b8.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B7%5D.png) 
+
 *Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell* 
 
 Compared to PCR (which grows exponentially), IVT takes adavantage of using cDNA as template and use T7 promoter to transcribe. IVT will not be biased towards GC content since cDNA is of high fidelity. The shortage of this method is the efficiency of amplification( 200 copies/round ). However, later methods will combine IVT and PCR to achieve higher quantity and less errors. 
@@ -185,7 +190,7 @@ Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 
 In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
 
-##### c) inDrop-Seq (Klein [2015](http://dx.doi.org/10.1016/j.cell.2015.04.
+##### c) inDrop-Seq (Klein [2015](http://dx.doi.org/10.1016/j.cell.2015.04)).
 The inDrop platform encapsulates cells into droplets with lysis buffer, reverse transcription(RT) reagents, and barcoded oligonucleotide primers. mRNA released from each lysed cell remains trapped in the same droplet and is barcoded during synthesis of cDNA. After barcoding, material from all cells is combined by breaking the droplets, and the cDNA library is sequenced using established methods **CEL-seq**.
 
 The major challenge is to ensure that each droplet carries primers encoding a different barcode. People use droplet to capsule barcode with single cell using Droplet device.  
@@ -207,7 +212,8 @@ A basic question is **the template is switching form what to what?**
 
 To understand this question we could have a look at the figure from the first application of template switching application in single cell RNA sequencing **STRT-seq** ([Islam 2011](http://www.ncbi.nlm.nih.gov/pubmed/20859030)):
 
-![325e6081bccd87516f717160658ad370.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B14%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B14%5D.png" width=700>
+
 *Figure 9 Single-cell tagged reverse transcription (STRT).* 
 
 The key steps of template switching are that:
@@ -219,7 +225,8 @@ The key steps of template switching are that:
 6)  The final library is sequenced from the P1 side using a custom primer.
 
 As we could imagine, we could add barcode either at 3' or 5':
-![a58e2b89f7c852a62ae983b0dcd822b7.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png" width=700>
+
 *Figure 9 TSO 3' or 5' scheme. [souce(10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
 
 Or we could not use barcode and build one library for each single cell to get the full length transcript which leads to SMART-Seq. 
