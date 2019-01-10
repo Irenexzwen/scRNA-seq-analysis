@@ -75,6 +75,8 @@ In 2006, [Kurimoto et al.,](https://academic.oup.com/nar/article/34/5/e42/114639
 
 *Figure 2 **Schematic diagram of cDNA amplification**. The mRNA and cDNA are colored pink and orange, respectively. The V1, V3 and T7 promoter sequences are represented by blue, red and green boxes, respectively. The bars above the letters represent the complementary sequences.*
 
+<br/>
+
 This protocol shows a paradiam for polyA tailing PCR amplification with few key steps to be noticed:
 
 - Use V1 primer plus polyT to generate the first cDNA of template mRNA, and use Exonuclease I to digest unreacted primer. 
@@ -108,10 +110,11 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 
 - The fifth step is a PCR enrichment reaction with a suppression PCR primer to ensure that a sufficient quantity ofDNA is obtained for the massively parallel sequencers or microarrays. All five steps are completed in **a single PCR tube** without any purification. 
 
-![1e262fea44db5d0ce69efe914c7938da.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B2%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B2%5D.png" width=700>
 
 *Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction* 
 
+<br/>
  **Main improvements** of Quartz-seq (compared to Kurimoto's method):
 1) Achieved robust suppression of byproduct synthesis;
     
@@ -141,7 +144,7 @@ Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry
 #### Technique origin （Ebrewine 1992 )
 IVT was first proposed by [Ebrewine et al., 1992](https://www.pnas.org/content/pnas/89/7/3010.full.pdf) and is a simple procedure that allows for template-directed synthesis of RNA molecules of any sequence from short oligonucleotides to those of several kilobases in μg to mg quantities. It is based on the engineering of a template that includes a bacteriophage promoter sequence (e.g. from the T7 coliphage) upstream of the sequence of interest followed by transcription using the corresponding RNA polymerase.
 
-![6dbc6b35e754b9bf9fb5facbb73d69b8.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B7%5D.png) 
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B7%5D.png" width=700> 
 
 *Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell* 
 
@@ -156,6 +159,7 @@ The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol le
 
 ![22a8c0ca0b3de40deb48928e644214b3.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B9%5D.png) 
 *Figure 6 The CEL-Seq Method*
+<br/>
 
 **Protocols**: 
 1)  The CEL-Seq method begins with a single-cell reverse-tran scription reaction using a primer designed with an anchored polyT, a unique barcode, the 50 Illumina sequencing adaptor, and a T7 promoter.
@@ -171,6 +175,7 @@ The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol le
 **Limitations**:
 1)  The CEL-Seq protocol selects for the single 3'-most fragment of each transcript. In contrast to virtually all other RNA-Seq methods.
 2)  Due to its strong 30 bias, the method is severely limited in its ability to distinguish alternative splice forms.
+<br/>
 
 **CEL-Seq 2 is optimized for higher sensitivity**:
 Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
@@ -186,7 +191,7 @@ Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 
 ##### b) MARS-Seq (Jaitin [2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/))
 
-![c777e5a11a657b5d0c69cf07e8d573d4.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B11%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B11%5D.png" width=700>
 
 In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
 
@@ -195,8 +200,7 @@ The inDrop platform encapsulates cells into droplets with lysis buffer, reverse 
 
 The major challenge is to ensure that each droplet carries primers encoding a different barcode. People use droplet to capsule barcode with single cell using Droplet device.  
 
-![f829e341be60ad663c4f85c63f85d8bd.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B12%5D.png)
-![aeed70dc92744b477f071019277f4081.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B13%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B13%5D.png" width=700>
 *Figure 8 Pipeline and Barcoding Hydrogel Microsphere Synthesis.* 
 
 
@@ -212,7 +216,7 @@ A basic question is **the template is switching form what to what?**
 
 To understand this question we could have a look at the figure from the first application of template switching application in single cell RNA sequencing **STRT-seq** ([Islam 2011](http://www.ncbi.nlm.nih.gov/pubmed/20859030)):
 
-<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B14%5D.png" width=700>
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B14%5D.png" width=500>
 
 *Figure 9 Single-cell tagged reverse transcription (STRT).* 
 
@@ -225,7 +229,7 @@ The key steps of template switching are that:
 6)  The final library is sequenced from the P1 side using a custom primer.
 
 As we could imagine, we could add barcode either at 3' or 5':
-<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png" width=700>
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png" width=600>
 
 *Figure 9 TSO 3' or 5' scheme. [souce(10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
 
@@ -271,14 +275,16 @@ Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellul
 
 &nbsp;
 
-![b4d383706f57802fedfcbb0d94f35b9b.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B19%5D.png)
-![618e3887c5cee70782f58a708ebdf822.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B20%5D.png)
-![dea831fa0c70fe03cda8384923928a41.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B21%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B19%5D.png" width=500>
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B20%5D.png" width=500>
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B21%5D.png" width=500>
 
 ## Summary
 ### 1) Techniques combinations:
 If we go over single cell sequencing workflow and details of each method:
+
 ![303ae0aff0ed6a555053c8e622fba7a0.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B22%5D.png)
+
 We would find there are three main parts that varies in different methods:
 
 * **Cell isolation**
@@ -294,13 +300,17 @@ Every method is a combination of building blocks, will ou propose noval combinat
 
 Here we summarize the findings of benchmarking work from [Ziegenhain et al., 2017](10.1016/j.molcel.2017.01.023). 
 #### Background
+
 **Materials**: 583 mouse embryonic stem cells. All libraries were sequenced to a reasonable level of saturation at one million reads.
-&nbsp;
+
 **Technical Variable**:
 1)  **Sensitivity**:  the probability to capture and convert a particular mRNA transcript present in a single cell into a cDNA molecule present in the library.
 2)  **Accuracy**:  how well the read quantification corresponds to the actual concentration of mRNAs.
 3)  **Precision**: the precision with which this amplification occurs (i.e., the technical variation of the quantification).
 4)  **Cost**
+
+<br/>
+<br/>
 
 ![8f99051d120746d1570dea5105bc437d.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B24%5D.png)
 *Figure 13 Library preparation and features of six methods..*
@@ -317,7 +327,8 @@ Here we summarize the findings of benchmarking work from [Ziegenhain et al., 201
 ##### B) Accuracy of scRNA-Seq Methods:
 compared the observed expression values (counts per million or UMIs per million) with the known concentrations of the 92 **ERCC** transcripts. For each cell, we calculated the coefficient of determination (R2) for a linear model fit. Still, Smart-Seq2 achieves the best performance.
 
-![5acb656ad0cf16c44e17f76f58ab07d1.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B26%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B26%5D.png" width=600>
+
 *Figure 15 Sensitivity of scRNA-Seq Methods. ERCC expression values (counts per million reads for Smart-seq/C1 and Smart-seq2 and UMIs per million reads for all others) were correlated to their annotated molarity. Shown are the distributions of correlation coefficients (adjusted R2 of linear regression model) across methods. Each dot represents a cell/bead and each box represents the median and first and third quartiles.*
 
 ##### C) Precision of Amplified Genes Is Strongly Increased by UMIs:
