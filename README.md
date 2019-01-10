@@ -286,7 +286,7 @@ Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellul
 ### 1) Techniques combinations:
 If we go over single cell sequencing workflow and details of each method:
 
-![303ae0aff0ed6a555053c8e622fba7a0.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B22%5D.png)
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B22%5D.png" width=500>
 
 We would find there are three main parts that varies in different methods:
 
