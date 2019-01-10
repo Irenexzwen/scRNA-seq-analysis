@@ -190,8 +190,8 @@ The inDrop platform encapsulates cells into droplets with lysis buffer, reverse 
 
 The major challenge is to ensure that each droplet carries primers encoding a different barcode. People use droplet to capsule barcode with single cell using Droplet device.  
 
-![f829e341be60ad663c4f85c63f85d8bd.png](en-resource://database/7763:1)
-![aeed70dc92744b477f071019277f4081.png](en-resource://database/7765:1)
+![f829e341be60ad663c4f85c63f85d8bd.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B12%5D.png)
+![aeed70dc92744b477f071019277f4081.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B13%5D.png)
 *Figure 8 Pipeline and Barcoding Hydrogel Microsphere Synthesis.* 
 
 
@@ -207,7 +207,7 @@ A basic question is **the template is switching form what to what?**
 
 To understand this question we could have a look at the figure from the first application of template switching application in single cell RNA sequencing **STRT-seq** ([Islam 2011](http://www.ncbi.nlm.nih.gov/pubmed/20859030)):
 
-![325e6081bccd87516f717160658ad370.png](en-resource://database/7767:1)@w=500
+![325e6081bccd87516f717160658ad370.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B14%5D.png)
 *Figure 9 Single-cell tagged reverse transcription (STRT).* 
 
 The key steps of template switching are that:
@@ -219,7 +219,7 @@ The key steps of template switching are that:
 6)  The final library is sequenced from the P1 side using a custom primer.
 
 As we could imagine, we could add barcode either at 3' or 5':
-![a58e2b89f7c852a62ae983b0dcd822b7.png](en-resource://database/7769:0)@w=600
+![a58e2b89f7c852a62ae983b0dcd822b7.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png)
 *Figure 9 TSO 3' or 5' scheme. [souce(10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
 
 Or we could not use barcode and build one library for each single cell to get the full length transcript which leads to SMART-Seq. 
@@ -229,7 +229,7 @@ To answer the question at the very beginning: **Polimerase does not switch stran
 #### Technique applications and derivations:
 ##### a) Smart-Seq 1&2 ( Picelli [2014](https://www.nature.com/articles/nprot.2014.006) )
 
-![532715c2d4c4416b13972dcd07f33afd.png](en-resource://database/7771:0)
+![532715c2d4c4416b13972dcd07f33afd.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B16%5D.png)
 *Figure 10 Flowchart for Smart-seq2 library preparation scheme.*
 
 **Protocols:**
@@ -252,26 +252,26 @@ To answer the question at the very beginning: **Polimerase does not switch stran
 
 ##### b) Drop-Seq ( Macosko [2015](https://www.cell.com/abstract/S0092-8674(15)00549-8) )
 
-![40486cd33d5cd989c110f5b46413ce9f.png](en-resource://database/7773:0)
+![40486cd33d5cd989c110f5b46413ce9f.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B17%5D.png)
 *Figure 11 Extraction and Processing of Single-Cell Transcriptomes by Drop-Seq.*
 
 ##### c) SPLiT-Seq ( Rosenberg [2018](http://science.sciencemag.org/content/early/2018/03/14/science.aam8999.full))
 
 Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellular origin of RNA through combinatorial barcoding. It's cheap, require no additional equipment and efficient sample multiplexing. 
 
-![20e1722885e28fd2c0ed60d11243f249.png](en-resource://database/7775:0)
+![20e1722885e28fd2c0ed60d11243f249.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B18%5D.png)
 *Figure 12 Labeling transcriptomes with split-pool barcoding. In each split-pool round, fixed cells or nuclei are randomly distributed into wells, and transcripts are labeled with well-specific barcodes. Barcoded RT primers are used in the first round. Second- and third-round barcodes are appended to cDNA through ligation. A fourth barcode is added to cDNA molecules by PCR during sequencing library preparation. The bottom schematic shows the final barcoded cDNA molecule.*
 
 &nbsp;
 
-![b4d383706f57802fedfcbb0d94f35b9b.png](en-resource://database/7777:0)
-![618e3887c5cee70782f58a708ebdf822.png](en-resource://database/7779:0)
-![dea831fa0c70fe03cda8384923928a41.png](en-resource://database/7781:0)
+![b4d383706f57802fedfcbb0d94f35b9b.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B19%5D.png)
+![618e3887c5cee70782f58a708ebdf822.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B20%5D.png)
+![dea831fa0c70fe03cda8384923928a41.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B21%5D.png)
 
 ## Summary
 ### 1) Techniques combinations:
 If we go over single cell sequencing workflow and details of each method:
-![303ae0aff0ed6a555053c8e622fba7a0.png](en-resource://database/7791:0)
+![303ae0aff0ed6a555053c8e622fba7a0.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B22%5D.png)
 We would find there are three main parts that varies in different methods:
 
 * **Cell isolation**
@@ -279,7 +279,7 @@ We would find there are three main parts that varies in different methods:
 * **Reverse transcribe from mRNA to cDNA**
 
 Every method is a combination of building blocks, will ou propose noval combinations?:
-![3f51dd0c54eebfef3033fd1ef17d2044.png](en-resource://database/7797:0)
+![3f51dd0c54eebfef3033fd1ef17d2044.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B23%5D.png)
 
 
 
@@ -295,13 +295,13 @@ Here we summarize the findings of benchmarking work from [Ziegenhain et al., 201
 3)  **Precision**: the precision with which this amplification occurs (i.e., the technical variation of the quantification).
 4)  **Cost**
 
-![8f99051d120746d1570dea5105bc437d.png](en-resource://database/7783:0)
+![8f99051d120746d1570dea5105bc437d.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B24%5D.png)
 *Figure 13 Library preparation and features of six methods..*
 
 #### Results
 ##### A) Number of genes detected (Sensitivity):
 
-![00408c2c7bac899848a8edd30688a3fc.png](en-resource://database/7785:0)
+![00408c2c7bac899848a8edd30688a3fc.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B25%5D.png)
 *Figure 14 Sensitivity of scRNA-Seq Methods.*
 
 * Smart-seq2 detected the highest number of genes per cell with a median of 9,138.
@@ -310,7 +310,7 @@ Here we summarize the findings of benchmarking work from [Ziegenhain et al., 201
 ##### B) Accuracy of scRNA-Seq Methods:
 compared the observed expression values (counts per million or UMIs per million) with the known concentrations of the 92 **ERCC** transcripts. For each cell, we calculated the coefficient of determination (R2) for a linear model fit. Still, Smart-Seq2 achieves the best performance.
 
-![5acb656ad0cf16c44e17f76f58ab07d1.png](en-resource://database/7787:0)@w=500
+![5acb656ad0cf16c44e17f76f58ab07d1.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B26%5D.png)
 *Figure 15 Sensitivity of scRNA-Seq Methods. ERCC expression values (counts per million reads for Smart-seq/C1 and Smart-seq2 and UMIs per million reads for all others) were correlated to their annotated molarity. Shown are the distributions of correlation coefficients (adjusted R2 of linear regression model) across methods. Each dot represents a cell/bead and each box represents the median and first and third quartiles.*
 
 ##### C) Precision of Amplified Genes Is Strongly Increased by UMIs:
@@ -321,7 +321,7 @@ Technical variation is substantial in scRNA-seq data primarily because a substan
 Smart-seq2 detects the common set of 13,361 genes in more cells than the UMI methods, but it has, as expected, more amplification noise than the UMI-based methods (Upon deep sequencing, each UMI will be observed multiple times, and the number of original DNA molecules can be determined simply by counting each UMI only once). 
 
 ##### D) Cost efficiency:
-![7c6ccdf6ffe69b13ea65170a0e0cd2da.png](en-resource://database/7789:0)
+![7c6ccdf6ffe69b13ea65170a0e0cd2da.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B27%5D.png)
 
 
 
