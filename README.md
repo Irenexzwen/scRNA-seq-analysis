@@ -107,7 +107,7 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 
 - The fifth step is a PCR enrichment reaction with a suppression PCR primer to ensure that a sufficient quantity ofDNA is obtained for the massively parallel sequencers or microarrays. All five steps are completed in **a single PCR tube** without any purification. 
 
-![1e262fea44db5d0ce69efe914c7938da.png](en-resource://database/7739:1)@w=500
+![1e262fea44db5d0ce69efe914c7938da.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B2%5D.png)
 *Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction* 
 
  **Main improvements** of Quartz-seq (compared to Kurimoto's method):
@@ -115,7 +115,7 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
     
     -  **Exonuclease I**
     - **Suppression PCR** (byproduct cDNA is short which indicates a faster fasion for self hybridization. This short double strand cDNA is not subject to PCR amplification.) 
-    ![5c88bfe4d72710cd5e1e8e1263e2f082.png](en-resource://database/7741:1)@w=500
+    ![5c88bfe4d72710cd5e1e8e1263e2f082.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B3%5D.png)
     
     
 2) Identified a robust PCR enzyme that allows the use of a single-tube reaction; 
@@ -123,33 +123,33 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
     - MightyAmp DNA Polymerase
 
 3) Determined the optimal conditions of reverse transcription (RT) and second-strand synthesis for the capturing mRNA and the first-strand cDNA.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![51cc5aeef9a48561f3fa1e5e0bc4862c.png](en-resource://database/7743:1)@w=400
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![51cc5aeef9a48561f3fa1e5e0bc4862c.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B4%5D.png)
 
 Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry into 384-well plate and cell barcode. 
 
-![d23bec373ec27ce1ef5f705c941a87a2.png](en-resource://database/7747:1)
+![d23bec373ec27ce1ef5f705c941a87a2.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B5%5D.png)
 
 ##### c) Other derivations:
-![a67ae467471ac4e2e89a3d3352d5f15d.png](en-resource://database/7745:1)
+![a67ae467471ac4e2e89a3d3352d5f15d.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B6%5D.png)
 
 
 ### 2) In vitro transcription (IVT) amplification
 #### Technique origin （Ebrewine 1992 )
 IVT was first proposed by [Ebrewine et al., 1992](https://www.pnas.org/content/pnas/89/7/3010.full.pdf) and is a simple procedure that allows for template-directed synthesis of RNA molecules of any sequence from short oligonucleotides to those of several kilobases in μg to mg quantities. It is based on the engineering of a template that includes a bacteriophage promoter sequence (e.g. from the T7 coliphage) upstream of the sequence of interest followed by transcription using the corresponding RNA polymerase.
 
-![6dbc6b35e754b9bf9fb5facbb73d69b8.png](en-resource://database/7749:1)@w=500 
+![6dbc6b35e754b9bf9fb5facbb73d69b8.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B7%5D.png) 
 *Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell* 
 
 Compared to PCR (which grows exponentially), IVT takes adavantage of using cDNA as template and use T7 promoter to transcribe. IVT will not be biased towards GC content since cDNA is of high fidelity. The shortage of this method is the efficiency of amplification( 200 copies/round ). However, later methods will combine IVT and PCR to achieve higher quantity and less errors. 
 
 
 #### Technique applications and derivations:
-![d9282ae58a3c60c9c1f9071cac413d7a.png](en-resource://database/7751:1)@w=700
+![d9282ae58a3c60c9c1f9071cac413d7a.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B8%5D.png)
 
 ##### a) CEL-Seq 1&2 (Hashimshony [2012](http://dx.doi.org/10.1016/j.celrep.2012.08.003) & [2016](http://dx.doi.org/10.1186/s13059-016-0938-8))
 The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol leveraged this for linear mRNA amplification from single cells. Here the RT adaptor also contains a T7 promoter, allowing the final double stranded DNA (dsDNA) to be transcribed into multiple copies of antisense RNA (aRNA). 
 
-![22a8c0ca0b3de40deb48928e644214b3.png](en-resource://database/7753:1)@w=700 
+![22a8c0ca0b3de40deb48928e644214b3.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B9%5D.png) 
 *Figure 6 The CEL-Seq Method*
 
 **Protocols**: 
@@ -169,7 +169,7 @@ The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol le
 
 **CEL-Seq 2 is optimized for higher sensitivity**:
 Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
-![132b35ab6c6cb2396d35b8df5e75e525.png](en-resource://database/7755:1)
+![132b35ab6c6cb2396d35b8df5e75e525.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B10%5D.png)
 *Figure 7 Changes introduced to the protocol.* 
 
 1)  Shortening the CEL-Seq primer from 92 to 82 nucleotides by reducing the length of the barcode from eight to six nucleotides, as well as shortening the T7 promoter and the Illumina 5'  adaptor.
@@ -181,7 +181,7 @@ Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 
 ##### b) MARS-Seq (Jaitin [2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/))
 
-![c777e5a11a657b5d0c69cf07e8d573d4.png](en-resource://database/7757:1)@w=500
+![c777e5a11a657b5d0c69cf07e8d573d4.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B11%5D.png)
 
 In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
 
