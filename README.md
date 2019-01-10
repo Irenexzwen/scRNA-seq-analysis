@@ -110,12 +110,14 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 
 - The fifth step is a PCR enrichment reaction with a suppression PCR primer to ensure that a sufficient quantity ofDNA is obtained for the massively parallel sequencers or microarrays. All five steps are completed in **a single PCR tube** without any purification. 
 
-<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B2%5D.png" width=700>
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B2%5D.png" width=500>
 
 *Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction* 
 
 <br/>
+
  **Main improvements** of Quartz-seq (compared to Kurimoto's method):
+ 
 1) Achieved robust suppression of byproduct synthesis;
     
     -  **Exonuclease I**
@@ -144,7 +146,7 @@ Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry
 #### Technique origin （Ebrewine 1992 )
 IVT was first proposed by [Ebrewine et al., 1992](https://www.pnas.org/content/pnas/89/7/3010.full.pdf) and is a simple procedure that allows for template-directed synthesis of RNA molecules of any sequence from short oligonucleotides to those of several kilobases in μg to mg quantities. It is based on the engineering of a template that includes a bacteriophage promoter sequence (e.g. from the T7 coliphage) upstream of the sequence of interest followed by transcription using the corresponding RNA polymerase.
 
-<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B7%5D.png" width=700> 
+<img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B7%5D.png" width=500> 
 
 *Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell* 
 
@@ -201,6 +203,7 @@ The inDrop platform encapsulates cells into droplets with lysis buffer, reverse 
 The major challenge is to ensure that each droplet carries primers encoding a different barcode. People use droplet to capsule barcode with single cell using Droplet device.  
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B13%5D.png" width=700>
+
 *Figure 8 Pipeline and Barcoding Hydrogel Microsphere Synthesis.* 
 
 
