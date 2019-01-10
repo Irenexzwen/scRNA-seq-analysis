@@ -45,7 +45,8 @@ It's been around a decade since [Tang et al., 2009](https://www.ncbi.nlm.nih.gov
 &nbsp;
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/TIM%E6%88%AA%E5%9B%BE20190109142038.png">
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; *Figure 1 **Scaling of scRNA-seq experiments**. ([Svensson et al., 2018](https://www.nature.com/articles/nprot.2017.149))*
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+*Figure 1 Scaling of scRNA-seq experiments. ([Svensson et al., 2018](https://www.nature.com/articles/nprot.2017.149))*
 
 
 &nbsp;
