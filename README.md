@@ -120,14 +120,15 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
  
 1) Achieved robust suppression of byproduct synthesis;
     
-    -  **Exonuclease I**
+    - **Exonuclease I** Digest primer.
     - **Suppression PCR** (byproduct cDNA is short which indicates a faster fasion for self hybridization. This short double strand cDNA is not subject to PCR amplification.) 
-    <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/supressionpcr.png" width=600>
+
+    <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/quartz.png" width=800>
     
     
 2) Identified a robust PCR enzyme that allows the use of a single-tube reaction; 
 
-    - MightyAmp DNA Polymerase
+    - MightyAmp DNA Polymerase (best HiFi DNA polymerase in single tube at that time).
 
 3) Determined the optimal conditions of reverse transcription (RT) and second-strand synthesis for the capturing mRNA and the first-strand cDNA.
 
