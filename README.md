@@ -177,7 +177,7 @@ The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol le
 
 **Limitations**:
 1)  The CEL-Seq protocol selects for the single 3'-most fragment of each transcript. In contrast to virtually all other RNA-Seq methods.
-2)  Due to its strong 30 bias, the method is severely limited in its ability to distinguish alternative splice forms.
+2)  Due to its strong 3' bias, the method is severely limited in its ability to distinguish alternative splice forms.
 <br/>
 
 **CEL-Seq 2 is optimized for higher sensitivity**:
@@ -214,7 +214,7 @@ The major challenge is to ensure that each droplet carries primers encoding a di
 #### Technique origin 
 
 From [wiki](https://en.wikipedia.org/wiki/Template_switching_polymerase_chain_reaction), the defination of TS-PCR is that:
-> Template-switching polymerase chain reaction (TS-PCR) is a method of reverse transcription and polymerase chain reaction (PCR) amplification that relies on a natural PCR primer sequence at the polyadenylation site a.k.a. poly(A) tail, and adds a second primer through the activity of murine leukemia virus reverse transcriptase.[1] This permits reading full cDNA sequence and can deliver high yield from single sources, even single cells that contain 10 to 30 picograms of mRNA, with relatively low levels (3-5%) of contaminating rRNA sequence. 
+> Template-switching polymerase chain reaction (TS-PCR) is a method of reverse transcription and polymerase chain reaction (PCR) amplification that relies on a natural PCR primer sequence at the polyadenylation site a.k.a. poly(A) tail, and adds a second primer through the activity of murine leukemia virus reverse transcriptase.This permits reading full cDNA sequence and can deliver high yield from single sources, even single cells that contain 10 to 30 picograms of mRNA, with relatively low levels (3-5%) of contaminating rRNA sequence. 
 
 A basic question is **the template is switching form what to what?**
 
@@ -227,7 +227,7 @@ To understand this question we could have a look at the figure from the first ap
 The key steps of template switching are that:
 1)  Use olig-dT as primer to reverse transcribe target RNA to get the first cDNA strand with 3-6 added cytocines.
 2)  Add template-switching oligonucleotide（TSO）primer (ii in green, which has a GGG at the beginning, **right now the template become the first cDNA strand**). The barcode is in green primer.
-3)  The product is am- plified by single-primer PCR exploiting the template-suppression effect and is then immobilized on beads, fragmented, and A-tailed. 
+3)  The product is amplified by single-primer PCR exploiting the template-suppression effect and is then immobilized on beads, fragmented, and A-tailed. 
 4)  The Illumina P2 adapter (blue) is ligated to the free end.
 5)  The P1 adapter is introduced in the library PCR step, using a primer tailed with the P1 se- quence (blue)
 6)  The final library is sequenced from the P1 side using a custom primer.
