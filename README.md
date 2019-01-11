@@ -122,7 +122,7 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
     
     -  **Exonuclease I**
     - **Suppression PCR** (byproduct cDNA is short which indicates a faster fasion for self hybridization. This short double strand cDNA is not subject to PCR amplification.) 
-    ![5c88bfe4d72710cd5e1e8e1263e2f082.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B3%5D.png)
+    ![5c88bfe4d72710cd5e1e8e1263e2f082.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/supressionpcr.png)
     
     
 2) Identified a robust PCR enzyme that allows the use of a single-tube reaction; 
