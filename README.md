@@ -93,7 +93,7 @@ This protocol shows a paradiam for polyA tailing PCR amplification with few key 
 ##### a) sc mRNA-seq whole-stranscriptome (Tang 2009)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![1bdbcb11bbe1f5e76fd52d5e677aff4e.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B1%5D.png)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Figure 3 **Schematic of the single-cell whole-transcriptome analysis.**[Tang et al., 2009](https://www.nature.com/articles/nmeth.1315)* 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*Figure 3 **Schematic of the single-cell whole-transcriptome analysis.**[(Tang et al., 2009)](https://www.nature.com/articles/nmeth.1315)* 
 
 This breakthrough work follows nearly the same idea as Kurimoto except for replacing array with sequencing (SOLiD system). Due to this reason, we could see that Tang didn't use T7 promoter any more. 
 
@@ -124,7 +124,8 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
     - **Suppression PCR** (byproduct cDNA is short which indicates a faster fasion for self hybridization. This short double strand cDNA is not subject to PCR amplification.) 
 
     <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/quartz.png" width=800>
-    (figure source [(Quartz-seq supplementary materials Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31))
+    
+   [source: Quartz-seq supplementary materials (Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31)).
     
     
 2) Identified a robust PCR enzyme that allows the use of a single-tube reaction; 
@@ -135,16 +136,18 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![51cc5aeef9a48561f3fa1e5e0bc4862c.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B4%5D.png)
-(figure source [(Quartz-seq supplementary materials Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31))
+
+[source: (Quartz-seq supplementary materials Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31).
 
 Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry into 384-well plate and cell barcode. 
 
 ![d23bec373ec27ce1ef5f705c941a87a2.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B5%5D.png)
-(figure source [(Quartz-seq2 Sasagawa et al,. 2018)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1407-3))
+
+[source: (Quartz-seq2 Sasagawa et al,. 2018)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1407-3)).
 
 ##### c) Other derivations:
 ![a67ae467471ac4e2e89a3d3352d5f15d.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B6%5D.png)
-*Table1 Summary of current single-cell RNA-sequencing methods - Homopolymer tailing-based PCR.[Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
+*Table1 Summary of current single-cell RNA-sequencing methods - Homopolymer tailing-based PCR.[(Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
  
 ### 2) In vitro transcription (IVT) amplification
 #### Technique origin （Ebrewine 1992 )
@@ -159,7 +162,8 @@ Compared to PCR (which grows exponentially), IVT takes adavantage of using cDNA 
 
 #### Technique applications and derivations:
 ![d9282ae58a3c60c9c1f9071cac413d7a.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B8%5D.png)
-*Table2 Summary of current single-cell RNA-sequencing methods - In vitro transcription-based linear amplification.[Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
+
+*Table2 Summary of current single-cell RNA-sequencing methods - In vitro transcription-based linear amplification.[(Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
 
 ##### a) CEL-Seq 1&2 (Hashimshony [2012](http://dx.doi.org/10.1016/j.celrep.2012.08.003) & [2016](http://dx.doi.org/10.1186/s13059-016-0938-8))
 The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol leveraged this for linear mRNA amplification from single cells. Here the RT adaptor also contains a T7 promoter, allowing the final double stranded DNA (dsDNA) to be transcribed into multiple copies of antisense RNA (aRNA). 
@@ -199,7 +203,8 @@ Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 ##### b) MARS-Seq (Jaitin [2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/))
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B11%5D.png" width=700>
-Figure source [Jaitin et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/).
+
+[source (Jaitin et al., 2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/).
 
 In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
 
@@ -249,7 +254,8 @@ To answer the question at the very beginning: **Polimerase does not switch stran
 #### Technique applications and derivations:
 
 ![d9282ae58a3c60c9c1f9071cac413d7a.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/template_switching.png)
-*Table3 Summary of current single-cell RNA-sequencing methods - Switching Mechanism at 5′ End of RNA Template (SMART)-based PCR.[Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
+
+*Table3 Summary of current single-cell RNA-sequencing methods - Switching Mechanism at 5′ End of RNA Template (SMART)-based PCR.[(Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
 
 ##### a) Smart-Seq 1&2 ( Picelli [2014](https://www.nature.com/articles/nprot.2014.006) )
 
@@ -291,6 +297,8 @@ Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellul
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B19%5D.png" width=500>
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B20%5D.png" width=500>
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B21%5D.png" width=500>
+
+*source: SPLiT-seq supplymentary [Table S12](http://science.sciencemag.org/highwire/filestream/707022/field_highwire_adjunct_files/2/aam8999_TableS12.xlsx)- List of all oligonucleotide sequences used. adapted by web source:sc-ngs.)*
 
 ## Summary
 ### 1) Techniques combinations:
