@@ -1,4 +1,4 @@
-<div><span><div style="font-size: 14px; margin: 0; padding: 0; width: 100%;"><h1 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 41px; border-bottom: 3px double #999; color: #000; margin-top: 14px;">scRNA-seq Review</h1>
+<div><span><div style="font-size: 14px; margin: 0; padding: 0; width: 100%;"><h1 style="line-height: 160%; box-sizing: content-box; font-weight: 700; font-size: 41px; border-bottom: 3px double #999; color: #000; margin-top: 14px;">scRNA-seq experimental methods Review</h1>
 <p style="line-height: 160%; box-sizing: content-box; margin: 10px 0; color: #333;"><em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Auther: Xingzhao (Irene) Wen</em><br/>
 <em style="line-height: 160%; box-sizing: content-box; font-style: italic;">Date: Jan 10th 2019</em></p>
 <blockquote style="line-height: 160%; box-sizing: content-box; margin: 15px 0; border-left: 4px solid #ddd; padding: 0 15px; color: #777;">
@@ -125,7 +125,7 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 
     <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/quartz.png" width=800>
     
-   [source: Quartz-seq supplementary materials (Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31)).
+   *source: Quartz-seq supplementary materials [(Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31)).
     
     
 2) Identified a robust PCR enzyme that allows the use of a single-tube reaction; 
@@ -137,13 +137,13 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![51cc5aeef9a48561f3fa1e5e0bc4862c.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B4%5D.png)
 
-[source: (Quartz-seq supplementary materials Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31).
+*source: Quartz-seq supplementary materials [(Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31).
 
 Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry into 384-well plate and cell barcode. 
 
 ![d23bec373ec27ce1ef5f705c941a87a2.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B5%5D.png)
 
-[source: (Quartz-seq2 Sasagawa et al,. 2018)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1407-3)).
+*source: Quartz-seq2 [(Sasagawa et al,. 2018)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1407-3)).
 
 ##### c) Other derivations:
 ![a67ae467471ac4e2e89a3d3352d5f15d.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B6%5D.png)
@@ -204,7 +204,7 @@ Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B11%5D.png" width=700>
 
-[source (Jaitin et al., 2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/).
+*source: [(Jaitin et al., 2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/).
 
 In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
 
@@ -245,7 +245,7 @@ The key steps of template switching are that:
 As we could imagine, we could add barcode either at 3' or 5':
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png" width=600>
 
-*Figure 9 TSO 3' or 5' scheme. [souce (10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
+*Figure 9 TSO 3' or 5' scheme. [souce (10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).[(Islam et al., 2011)](http://www.ncbi.nlm.nih.gov/pubmed/20859030)*
 
 Or we could not use barcode and build one library for each single cell to get the full length transcript which leads to SMART-Seq. 
 
@@ -283,6 +283,7 @@ To answer the question at the very beginning: **Polimerase does not switch stran
 ##### b) Drop-Seq ( Macosko [2015](https://www.cell.com/abstract/S0092-8674(15)00549-8) )
 
 ![40486cd33d5cd989c110f5b46413ce9f.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B17%5D.png)
+
 *Figure 11 Extraction and Processing of Single-Cell Transcriptomes by Drop-Seq.[(Macosko et al,. 2015)](https://www.cell.com/abstract/S0092-8674(15)00549-8)*
 
 ##### c) SPLiT-Seq ( Rosenberg [2018](http://science.sciencemag.org/content/early/2018/03/14/science.aam8999.full))
@@ -305,7 +306,8 @@ Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellul
 If we go over single cell sequencing workflow and details of each method:
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B22%5D.png" width=500>
-*figure source [wiki-single cell sequencing](https://en.wikipedia.org/wiki/Single_cell_sequencing).*
+
+*source: [wiki-single cell sequencing](https://en.wikipedia.org/wiki/Single_cell_sequencing).*
 
 We would find there are three main parts that varies in different methods:
 
