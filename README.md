@@ -73,7 +73,7 @@ In 2006, [Kurimoto et al.,](https://academic.oup.com/nar/article/34/5/e42/114639
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image.png">
 
-*Figure 2 **Schematic diagram of cDNA amplification**. The mRNA and cDNA are colored pink and orange, respectively. The V1, V3 and T7 promoter sequences are represented by blue, red and green boxes, respectively. The bars above the letters represent the complementary sequences.*
+*Figure 2 **Schematic diagram of cDNA amplification**. The mRNA and cDNA are colored pink and orange, respectively. The V1, V3 and T7 promoter sequences are represented by blue, red and green boxes, respectively. The bars above the letters represent the complementary sequences.[(Kurimoto et al., 2006)](https://academic.oup.com/nar/article/34/5/e42/1146394)*
 
 <br/>
 
@@ -112,7 +112,7 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B2%5D.png" width=500>
 
-*Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction* 
+*Figure 4 Schematic of the whole-transcript amplification methods based on the poly-Atailing reaction.[(Sasagawa 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31)* 
 
 <br/>
 
@@ -124,6 +124,7 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
     - **Suppression PCR** (byproduct cDNA is short which indicates a faster fasion for self hybridization. This short double strand cDNA is not subject to PCR amplification.) 
 
     <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/quartz.png" width=800>
+    (figure source [(Quartz-seq supplementary materials Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31))
     
     
 2) Identified a robust PCR enzyme that allows the use of a single-tube reaction; 
@@ -134,34 +135,37 @@ This method has been thoroughly reviewed by [Xiaochen](https://drive.google.com/
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![51cc5aeef9a48561f3fa1e5e0bc4862c.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B4%5D.png)
+(figure source [(Quartz-seq supplementary materials Sasagawa et al,. 2013)](https://genomebiology.biomedcentral.com/articles/10.1186/gb-2013-14-4-r31))
 
 Quartz-seq2 is a high throughput version of Quartz-seq1 combining Flow-cytometry into 384-well plate and cell barcode. 
 
 ![d23bec373ec27ce1ef5f705c941a87a2.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B5%5D.png)
+(figure source [(Quartz-seq2 Sasagawa et al,. 2018)](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-018-1407-3))
 
 ##### c) Other derivations:
 ![a67ae467471ac4e2e89a3d3352d5f15d.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B6%5D.png)
-
-
+*Table1 Summary of current single-cell RNA-sequencing methods - Homopolymer tailing-based PCR.[Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
+ 
 ### 2) In vitro transcription (IVT) amplification
 #### Technique origin （Ebrewine 1992 )
 IVT was first proposed by [Ebrewine et al., 1992](https://www.pnas.org/content/pnas/89/7/3010.full.pdf) and is a simple procedure that allows for template-directed synthesis of RNA molecules of any sequence from short oligonucleotides to those of several kilobases in μg to mg quantities. It is based on the engineering of a template that includes a bacteriophage promoter sequence (e.g. from the T7 coliphage) upstream of the sequence of interest followed by transcription using the corresponding RNA polymerase.
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B7%5D.png" width=500> 
 
-*Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell* 
+*Figure 5 Schematic of the reamplification procedure used to achieve a millionfold amplification of the original RNA population from a single cell.[(Ebrewine et al., 1992)](https://www.pnas.org/content/pnas/89/7/3010.full.pdf)* 
 
 Compared to PCR (which grows exponentially), IVT takes adavantage of using cDNA as template and use T7 promoter to transcribe. IVT will not be biased towards GC content since cDNA is of high fidelity. The shortage of this method is the efficiency of amplification( 200 copies/round ). However, later methods will combine IVT and PCR to achieve higher quantity and less errors. 
 
 
 #### Technique applications and derivations:
 ![d9282ae58a3c60c9c1f9071cac413d7a.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B8%5D.png)
+*Table2 Summary of current single-cell RNA-sequencing methods - In vitro transcription-based linear amplification.[Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
 
 ##### a) CEL-Seq 1&2 (Hashimshony [2012](http://dx.doi.org/10.1016/j.celrep.2012.08.003) & [2016](http://dx.doi.org/10.1186/s13059-016-0938-8))
 The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol leveraged this for linear mRNA amplification from single cells. Here the RT adaptor also contains a T7 promoter, allowing the final double stranded DNA (dsDNA) to be transcribed into multiple copies of antisense RNA (aRNA). 
 
 ![22a8c0ca0b3de40deb48928e644214b3.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B9%5D.png) 
-*Figure 6 The CEL-Seq Method*
+*Figure 6 The CEL-Seq Method.[(Hashimshony et al., 2012)](http://dx.doi.org/10.1016/j.celrep.2012.08.003)*
 <br/>
 
 **Protocols**: 
@@ -183,7 +187,7 @@ The CEL-Seq (Cell Expression by Linear amplification and Sequencing) protocol le
 **CEL-Seq 2 is optimized for higher sensitivity**:
 Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 ![132b35ab6c6cb2396d35b8df5e75e525.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B10%5D.png)
-*Figure 7 Changes introduced to the protocol.* 
+*Figure 7 Changes introduced to the protocol.[(Hashimshony et al., 2016)](http://dx.doi.org/10.1186/s13059-016-0938-8)* 
 
 1)  Shortening the CEL-Seq primer from 92 to 82 nucleotides by reducing the length of the barcode from eight to six nucleotides, as well as shortening the T7 promoter and the Illumina 5'  adaptor.
 2)  Optimized the conversion of RNA to dsDNA by testing alternative commercially available reverse transcriptases for cDNA synthesis and polymerases for second-strand synthesis namely **SuperScript II**.
@@ -195,6 +199,7 @@ Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 ##### b) MARS-Seq (Jaitin [2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/))
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B11%5D.png" width=700>
+Figure source [Jaitin et al., 2014](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/).
 
 In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
 
@@ -205,7 +210,7 @@ The major challenge is to ensure that each droplet carries primers encoding a di
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B13%5D.png" width=700>
 
-*Figure 8 Pipeline and Barcoding Hydrogel Microsphere Synthesis.* 
+*Figure 8 Pipeline and Barcoding Hydrogel Microsphere Synthesis. [(Klein et al., 2015)](http://dx.doi.org/10.1016/j.cell.2015.04)* 
 
 
 
@@ -235,17 +240,21 @@ The key steps of template switching are that:
 As we could imagine, we could add barcode either at 3' or 5':
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png" width=600>
 
-*Figure 9 TSO 3' or 5' scheme. [souce(10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
+*Figure 9 TSO 3' or 5' scheme. [souce (10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
 
 Or we could not use barcode and build one library for each single cell to get the full length transcript which leads to SMART-Seq. 
 
 To answer the question at the very beginning: **Polimerase does not switch strands, it switches from mRNA as a template to TSO as template.**
 
 #### Technique applications and derivations:
+
+![d9282ae58a3c60c9c1f9071cac413d7a.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/template_switching.png)
+*Table3 Summary of current single-cell RNA-sequencing methods - Switching Mechanism at 5′ End of RNA Template (SMART)-based PCR.[Hedlund et al,. 2017)](https://www.sciencedirect.com/science/article/pii/S0098299717300535).*
+
 ##### a) Smart-Seq 1&2 ( Picelli [2014](https://www.nature.com/articles/nprot.2014.006) )
 
 ![532715c2d4c4416b13972dcd07f33afd.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B16%5D.png)
-*Figure 10 Flowchart for Smart-seq2 library preparation scheme.*
+*Figure 10 Flowchart for Smart-seq2 library preparation scheme.[(Picelli et al., 2014)](https://www.nature.com/articles/nprot.2014.006)*
 
 **Protocols:**
 1)  Cell lysis: mild (hypotonic) lysis buffer contains free dNTPs and tailed oligo-dT oligonucleotides (30-nt poly-dT stretch and a 25-nt universal 5′ anchor sequence).
@@ -268,14 +277,14 @@ To answer the question at the very beginning: **Polimerase does not switch stran
 ##### b) Drop-Seq ( Macosko [2015](https://www.cell.com/abstract/S0092-8674(15)00549-8) )
 
 ![40486cd33d5cd989c110f5b46413ce9f.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B17%5D.png)
-*Figure 11 Extraction and Processing of Single-Cell Transcriptomes by Drop-Seq.*
+*Figure 11 Extraction and Processing of Single-Cell Transcriptomes by Drop-Seq.[(Macosko et al,. 2015)](https://www.cell.com/abstract/S0092-8674(15)00549-8)*
 
 ##### c) SPLiT-Seq ( Rosenberg [2018](http://science.sciencemag.org/content/early/2018/03/14/science.aam8999.full))
 
 Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellular origin of RNA through combinatorial barcoding. It's cheap, require no additional equipment and efficient sample multiplexing. 
 
 ![20e1722885e28fd2c0ed60d11243f249.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B18%5D.png)
-*Figure 12 Labeling transcriptomes with split-pool barcoding. In each split-pool round, fixed cells or nuclei are randomly distributed into wells, and transcripts are labeled with well-specific barcodes. Barcoded RT primers are used in the first round. Second- and third-round barcodes are appended to cDNA through ligation. A fourth barcode is added to cDNA molecules by PCR during sequencing library preparation. The bottom schematic shows the final barcoded cDNA molecule.*
+*Figure 12 Labeling transcriptomes with split-pool barcoding. In each split-pool round, fixed cells or nuclei are randomly distributed into wells, and transcripts are labeled with well-specific barcodes. Barcoded RT primers are used in the first round. Second- and third-round barcodes are appended to cDNA through ligation. A fourth barcode is added to cDNA molecules by PCR during sequencing library preparation. The bottom schematic shows the final barcoded cDNA molecule.[(Rosenberg et al,. 2018)](http://science.sciencemag.org/content/early/2018/03/14/science.aam8999.full)*
 
 &nbsp;
 
@@ -288,6 +297,7 @@ Split-pool ligation-based transcriptome sequencing (SPLiT-seq) labels the cellul
 If we go over single cell sequencing workflow and details of each method:
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B22%5D.png" width=500>
+*figure source [wiki-single cell sequencing](https://en.wikipedia.org/wiki/Single_cell_sequencing).*
 
 We would find there are three main parts that varies in different methods:
 
@@ -296,7 +306,7 @@ We would find there are three main parts that varies in different methods:
 * **Reverse transcribe from mRNA to cDNA**
 
 Every method is a combination of building blocks, will ou propose noval combinations?:
-![3f51dd0c54eebfef3033fd1ef17d2044.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B23%5D.png)
+![3f51dd0c54eebfef3033fd1ef17d2044.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/comparison.jpg)
 
 
 
@@ -317,13 +327,13 @@ Here we summarize the findings of benchmarking work from [Ziegenhain et al., 201
 <br/>
 
 ![8f99051d120746d1570dea5105bc437d.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B24%5D.png)
-*Figure 13 Library preparation and features of six methods..*
+*Figure 13 Library preparation and features of six methods.[(Ziegenhain et al., 2017)](10.1016/j.molcel.2017.01.023)*
 
 #### Results
 ##### A) Number of genes detected (Sensitivity):
 
 ![00408c2c7bac899848a8edd30688a3fc.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B25%5D.png)
-*Figure 14 Sensitivity of scRNA-Seq Methods.*
+*Figure 14 Sensitivity of scRNA-Seq Methods.[(Ziegenhain et al., 2017)](10.1016/j.molcel.2017.01.023)*
 
 * Smart-seq2 detected the highest number of genes per cell with a median of 9,138.
 * Smart-seq2 is the most sensitive method, as it detects the highest number of genes per cell and the most genes in total across cells and has the most even coverage across transcripts.
@@ -333,7 +343,7 @@ compared the observed expression values (counts per million or UMIs per million)
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B26%5D.png" width=600>
 
-*Figure 15 Sensitivity of scRNA-Seq Methods. ERCC expression values (counts per million reads for Smart-seq/C1 and Smart-seq2 and UMIs per million reads for all others) were correlated to their annotated molarity. Shown are the distributions of correlation coefficients (adjusted R2 of linear regression model) across methods. Each dot represents a cell/bead and each box represents the median and first and third quartiles.*
+*Figure 15 Sensitivity of scRNA-Seq Methods. ERCC expression values (counts per million reads for Smart-seq/C1 and Smart-seq2 and UMIs per million reads for all others) were correlated to their annotated molarity. Shown are the distributions of correlation coefficients (adjusted R2 of linear regression model) across methods. Each dot represents a cell/bead and each box represents the median and first and third quartiles.[(Ziegenhain et al., 2017)](10.1016/j.molcel.2017.01.023)*
 
 ##### C) Precision of Amplified Genes Is Strongly Increased by UMIs:
 While a high accuracy is necessary to compare absolute expression levels, one of the most common experimental aims is to compare relative expression levels to identify differentially ex- pressed genes or different cell types.
@@ -344,7 +354,7 @@ Smart-seq2 detects the common set of 13,361 genes in more cells than the UMI met
 
 ##### D) Cost efficiency:
 ![7c6ccdf6ffe69b13ea65170a0e0cd2da.png](https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B27%5D.png)
-
+*Figure source [(Ziegenhain et al., 2017)](10.1016/j.molcel.2017.01.023).*
 
 
 
