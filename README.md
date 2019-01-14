@@ -204,7 +204,7 @@ Seeking to improve CEL-Seq's efficiency, CEL-Seq2 introduced several changes:
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B11%5D.png" width=700>
 
-*source: [(Jaitin et al., 2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/).
+*source: [(Jaitin et al., 2014)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4412462/).*
 
 In short, MARS-Seq use the same 3' adaptor ligation method as CEL-Seq1 but different in Cell isolation method. 
 
@@ -232,7 +232,7 @@ To understand this question we could have a look at the figure from the first ap
 
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B14%5D.png" width=500>
 
-*Figure 9 Single-cell tagged reverse transcription (STRT).* 
+*Figure 9 Single-cell tagged reverse transcription (STRT).[(Islam et al., 2011)](http://www.ncbi.nlm.nih.gov/pubmed/20859030))* 
 
 The key steps of template switching are that:
 1)  Use olig-dT as primer to reverse transcribe target RNA to get the first cDNA strand with 3-6 added cytocines.
@@ -245,7 +245,7 @@ The key steps of template switching are that:
 As we could imagine, we could add barcode either at 3' or 5':
 <img src="https://github.com/Irenexzwen/scRNA-seq-analysis/blob/master/figures/Image%20%5B15%5D.png" width=600>
 
-*Figure 9 TSO 3' or 5' scheme. [souce (10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).[(Islam et al., 2011)](http://www.ncbi.nlm.nih.gov/pubmed/20859030)*
+*Figure 9 TSO 3' or 5' scheme. [souce (10x genomics)](https://kb.10xgenomics.com/hc/en-us/articles/360001493051-What-is-a-template-switch-oligo-TSO-).*
 
 Or we could not use barcode and build one library for each single cell to get the full length transcript which leads to SMART-Seq. 
 
